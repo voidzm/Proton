@@ -1,0 +1,13 @@
+[
+{
+	"modid": "Proton",
+	"name": "Proton",
+	"description": "A Minecraft mod that extends many areas of the game with new mid and end-game content that fits with vanilla!",
+	"version": "0.1.0",
+	"credits": "Designed and coded by voidzm",
+	"mcversion": "1.6.2",
+	"authors": ["voidzm"],
+	"url": "https://github.com/voidzm/Proton/",
+	"logoFile": "/assets/proton/textures/gui/logo.png"
+}
+]
