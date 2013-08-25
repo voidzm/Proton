@@ -6,7 +6,6 @@
 
 package com.voidzm.proton.core;
 
-import java.io.File;
 import java.util.Map;
 
 import com.voidzm.novamenu.asm.NovamenuPlugin;

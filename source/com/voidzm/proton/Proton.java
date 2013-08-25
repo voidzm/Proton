@@ -6,13 +6,15 @@
 
 package com.voidzm.proton;
 
-import com.voidzm.proton.handler.PacketHandler;
+import com.voidzm.proton.controller.BiomeController;
+import com.voidzm.proton.controller.DimensionController;
 import com.voidzm.proton.util.Constants;
+import com.voidzm.proton.util.ProtonConfiguration;
 
 import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
+import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
@@ -28,13 +30,19 @@ public class Proton {
 	@SidedProxy(clientSide=Constants.clientproxy, serverSide=Constants.serverproxy)
 	public static ServerProxy proxy;
 	
+	public static ProtonConfiguration config;
+	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
+		config = new ProtonConfiguration(event.getSuggestedConfigurationFile());
+		DimensionController.init(config);
 		proxy.registerRenderers();
 	}
 	
 	@EventHandler
-	public void init(FMLInitializationEvent event) {}
+	public void init(FMLInitializationEvent event) {
+		BiomeController.init(config, false);
+	}
 	
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event) {}
