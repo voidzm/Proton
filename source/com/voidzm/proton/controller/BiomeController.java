@@ -23,6 +23,8 @@ public class BiomeController {
 	
 	public static BiomeGenBase extremeForest;
 	public static BiomeGenBase insanityHeights;
+	public static BiomeGenBase grassySummits;
+	public static BiomeGenBase frozenForest;
 	
 	public static void init(ProtonConfiguration cfg, boolean doVanillaBiomes) {
 		if(config != null) {
@@ -45,11 +47,13 @@ public class BiomeController {
 	private static void createBiomes() {
 		extremeForest = new BiomeProton(config.extremeforestID, BiomeProperties.EXTREMEFOREST, "Extreme Forest");
 		insanityHeights = new BiomeProton(config.insanityheightsID, BiomeProperties.INSANITYHEIGHTS, "Insanity Heights");
+		grassySummits = new BiomeProton(config.grassysummitsID, BiomeProperties.GRASSYSUMMITS, "Grassy Summits");
+		frozenForest = new BiomeProton(config.frozenforestID, BiomeProperties.FROZENFOREST, "Frozen Forest");
 	}
 	
 	private static void registerBiomes() {
-		addStandardBiome(extremeForest);
-		addStandardBiome(insanityHeights);
+		addStandardBiome(grassySummits);
+		addStandardBiome(frozenForest);
 	}
 	
 	private static void removeVanillaBiomes() {

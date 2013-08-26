@@ -8,6 +8,7 @@ package com.voidzm.proton;
 
 import com.voidzm.proton.controller.BiomeController;
 import com.voidzm.proton.controller.DimensionController;
+import com.voidzm.proton.registry.ProtonLogRegistry;
 import com.voidzm.proton.util.Constants;
 import com.voidzm.proton.util.ProtonConfiguration;
 
@@ -42,6 +43,12 @@ public class Proton {
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
 		BiomeController.init(config, false);
+		ProtonLogRegistry.registerLog("Olive Wood", "woodolive");
+		ProtonLogRegistry.registerLog("Olive Wood 1", "woodolive");
+		ProtonLogRegistry.registerLog("Olive Wood 2", "woodolive");
+		ProtonLogRegistry.registerLog("Olive Wood 3", "woodolive");
+		ProtonLogRegistry.registerLog("Olive Wood 4", "woodolive");
+		ProtonLogRegistry.registrationDone();
 	}
 	
 	@EventHandler
