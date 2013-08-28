@@ -17,6 +17,21 @@ public class ProtonConfiguration {
 	
 	private Configuration internalCfg;
 	
+	/**** BLOCK ****/
+	
+	public int protonlogstartID;
+	public int protonlogendID;
+	public int protonplanksstartID;
+	public int protonplanksendID;
+	public int protonwoodstairsstartID;
+	public int protonwoodstairsendID;
+	public int protonwoodslabstartID;
+	public int protonwoodslabendID;
+	public int protonleavesstartID;
+	public int protonleavesendID;
+	public int protonsaplingstartID;
+	public int protonsaplingendID;
+	
 	/**** BIOME ****/
 	
 	public int extremeforestID;
@@ -41,10 +56,26 @@ public class ProtonConfiguration {
 		internalCfg = new Configuration(file);
 		internalCfg.save();
 		internalCfg.load();
+		this.loadBlockConfig();
 		this.loadBiomeConfig();
 		this.loadDimensionConfig();
 		internalCfg.save();
 		System.out.println("[Proton] Config loaded.");
+	}
+	
+	private void loadBlockConfig() {
+		protonlogstartID = internalCfg.get(Configuration.CATEGORY_BLOCK, "protonlogstartID", "1600").getInt();
+		protonlogendID = internalCfg.get(Configuration.CATEGORY_BLOCK, "protonlogendID", "1607").getInt();
+		protonplanksstartID = internalCfg.get(Configuration.CATEGORY_BLOCK, "protonplanksstartID", "1608").getInt();
+		protonplanksendID = internalCfg.get(Configuration.CATEGORY_BLOCK, "protonplanksendID", "1609").getInt();
+		protonwoodstairsstartID = internalCfg.get(Configuration.CATEGORY_BLOCK, "protonwoodstairsstartID", "1610").getInt();
+		protonwoodstairsendID = internalCfg.get(Configuration.CATEGORY_BLOCK, "protonwoodstairsendID", "1641").getInt();
+		protonwoodslabstartID = internalCfg.get(Configuration.CATEGORY_BLOCK, "protonwoodslabstartID", "1642").getInt();
+		protonwoodslabendID = internalCfg.get(Configuration.CATEGORY_BLOCK, "protonwoodslabendID", "1649").getInt();
+		protonleavesstartID = internalCfg.get(Configuration.CATEGORY_BLOCK, "protonleavesstartID", "1650").getInt();
+		protonleavesendID = internalCfg.get(Configuration.CATEGORY_BLOCK, "protonleavesendID", "1657").getInt();
+		protonsaplingstartID = internalCfg.get(Configuration.CATEGORY_BLOCK, "protonsaplingstartID", "1658").getInt();
+		protonsaplingendID = internalCfg.get(Configuration.CATEGORY_BLOCK, "protonsaplingendID", "1665").getInt();
 	}
 	
 	private void loadBiomeConfig() {

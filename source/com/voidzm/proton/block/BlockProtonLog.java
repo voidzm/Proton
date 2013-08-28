@@ -10,8 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import com.voidzm.proton.item.ItemBlockProton;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -19,6 +17,8 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
+
+import com.voidzm.proton.item.ItemBlockProton;
 
 public class BlockProtonLog extends BlockProton {
 
@@ -44,9 +44,9 @@ public class BlockProtonLog extends BlockProton {
 		if(logsRepresented >= 4) {
 			System.out.println("Block " + name + " not registered: this ID already contains four logs!");
 		}
-		this.names.add(name);
-		textureNames[logsRepresented][0] = "proton:" + icon + "_side";
-		textureNames[logsRepresented][1] = "proton:" + icon + "_end";
+		this.names.add(name + " Wood");
+		textureNames[logsRepresented][0] = "proton:log" + icon + "_side";
+		textureNames[logsRepresented][1] = "proton:log" + icon + "_end";
 		logsRepresented++;
 	}
 	

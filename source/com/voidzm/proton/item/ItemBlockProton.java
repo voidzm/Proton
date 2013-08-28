@@ -8,15 +8,16 @@ package com.voidzm.proton.item;
 
 import java.util.ArrayList;
 
+import net.minecraft.block.Block;
+import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.Icon;
+
 import com.voidzm.proton.block.BlockProton;
 import com.voidzm.proton.protocol.IRegisterable;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.block.Block;
-import net.minecraft.item.ItemBlock;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.Icon;
 
 public class ItemBlockProton extends ItemBlock {
 

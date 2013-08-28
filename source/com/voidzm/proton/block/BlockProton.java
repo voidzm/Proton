@@ -8,15 +8,15 @@ package com.voidzm.proton.block;
 
 import java.util.ArrayList;
 
-import com.voidzm.proton.protocol.IRegisterable;
-import com.voidzm.proton.util.RegisterData;
-import com.voidzm.proton.util.Startup;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import com.voidzm.proton.protocol.IRegisterable;
+import com.voidzm.proton.util.RegisterData;
+import com.voidzm.proton.util.Startup;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
