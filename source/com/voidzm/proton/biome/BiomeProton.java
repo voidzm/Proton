@@ -25,6 +25,7 @@ public class BiomeProton extends BiomeGenBase {
 	private int waterMultiplier = -1;
 
 	public boolean doLakeGen = true;
+	public boolean doFog = false;
 
 	public BiomeProton(int par1, BiomeProperties prop, String name) {
 		super(par1);
@@ -113,6 +114,11 @@ public class BiomeProton extends BiomeGenBase {
 
 	public BiomeProton disableLakes() {
 		this.doLakeGen = false;
+		return this;
+	}
+
+	public BiomeProton enableFog() {
+		this.doFog = true;
 		return this;
 	}
 

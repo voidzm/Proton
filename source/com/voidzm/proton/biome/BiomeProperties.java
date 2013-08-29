@@ -15,7 +15,7 @@ import com.voidzm.proton.biome.BiomeStructureGen.StructureGenType;
 public enum BiomeProperties {
 
 	EXTREMEFOREST(1, 0, 2, 0.4F, 1.8F, 0.7F, 0.8F, new BiomeStructureGen(StructureGenType.SMALLTREE, true, 5), new BiomeStructureGen(StructureGenType.BIRCHTREE, true, 1)),
-	INSANITYHEIGHTS(1, 0, 2, -1.0F, 4.0F, 0.7F, 0.8F, new BiomeStructureGen(StructureGenType.SMALLTREE, true, 7), new BiomeStructureGen(StructureGenType.BIRCHTREE, true, 1)),
+	INSANITYHEIGHTS(3, 0, 2, -1.0F, 4.0F, 0.7F, 0.8F, new BiomeStructureGen(StructureGenType.SMALLTREE, true, 7), new BiomeStructureGen(StructureGenType.BIRCHTREE, true, 1)),
 	GRASSYSUMMITS(15, 0, 1, 1.9F, 1.9F, 0.7F, 0.3F, 0x94BA5B, 0x94BA5B, new BiomeStructureGen[] {}),
 	FROZENFOREST(-999, -999, -999, 0.2F, 0.4F, 0.0F, 0.8F, 0x98D9D4, 0x98D9D4, new BiomeStructureGen(StructureGenType.SMALLTREE, true, 5), new BiomeStructureGen(StructureGenType.BIGTREE, false, 2)),
 	SAVANNA(9, -999, 1, 0.1F, 0.1F, 0.7F, 0.2F, 0xADA263, 0xADA263, new BiomeStructureGen(StructureGenType.OLIVETREE, false, 5)),

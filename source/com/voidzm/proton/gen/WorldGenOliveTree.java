@@ -25,10 +25,10 @@ public class WorldGenOliveTree extends WorldGenProtonTree {
 
 	@Override
 	public boolean generate(World world, Random rand, int x, int y, int z, boolean biomeCheck) {
-		int oliveLogID = ProtonWoodRegistry.fetchLogIDForName(TreeType.OLIVE.treeName);
-		int oliveLogMeta = ProtonWoodRegistry.fetchLogMetaForName(TreeType.OLIVE.treeName);
-		int oliveLeavesID = ProtonLeavesRegistry.fetchLeavesIDForName(TreeType.OLIVE.treeName);
-		int oliveLeavesMeta = ProtonLeavesRegistry.fetchLeavesMetaForName(TreeType.OLIVE.treeName);
+		int logID = ProtonWoodRegistry.fetchLogIDForName(TreeType.OLIVE.treeName);
+		int logMeta = ProtonWoodRegistry.fetchLogMetaForName(TreeType.OLIVE.treeName);
+		int leavesID = ProtonLeavesRegistry.fetchLeavesIDForName(TreeType.OLIVE.treeName);
+		int leavesMeta = ProtonLeavesRegistry.fetchLeavesMetaForName(TreeType.OLIVE.treeName);
 
 		int rootBlockID = world.getBlockId(x, y - 1, z);
 		if(rootBlockID != Block.grass.blockID && rootBlockID != Block.dirt.blockID) { // The root block is wrong
@@ -59,28 +59,28 @@ public class WorldGenOliveTree extends WorldGenProtonTree {
 				for(int iy = 0; iy < exposedTrunkHeight + 4; iy++) {
 					if(iy < exposedTrunkHeight) {
 						if(ix == 0 && iz == 0) {
-							this.setBlockAndMetadata(world, x + ix, y + iy, z + iz, oliveLogID, oliveLogMeta);
+							this.setBlockAndMetadata(world, x + ix, y + iy, z + iz, logID, logMeta);
 						}
 					}
 					else if(iy == exposedTrunkHeight || iy == exposedTrunkHeight + 2) {
 						if(Math.abs(ix) + Math.abs(iz) <= 1) {
-							this.setBlockAndMetadata(world, x + ix, y + iy, z + iz, oliveLeavesID, oliveLeavesMeta);
+							this.setBlockAndMetadata(world, x + ix, y + iy, z + iz, leavesID, leavesMeta);
 						}
 						if(ix == 0 && iz == 0) {
-							this.setBlockAndMetadata(world, x + ix, y + iy, z + iz, oliveLogID, oliveLogMeta);
+							this.setBlockAndMetadata(world, x + ix, y + iy, z + iz, logID, logMeta);
 						}
 					}
 					else if(iy == exposedTrunkHeight + 1) {
 						if(Math.abs(ix) != 2 || Math.abs(iz) != 2) {
-							this.setBlockAndMetadata(world, x + ix, y + iy, z + iz, oliveLeavesID, oliveLeavesMeta);
+							this.setBlockAndMetadata(world, x + ix, y + iy, z + iz, leavesID, leavesMeta);
 						}
 						if(ix == 0 && iz == 0) {
-							this.setBlockAndMetadata(world, x + ix, y + iy, z + iz, oliveLogID, oliveLogMeta);
+							this.setBlockAndMetadata(world, x + ix, y + iy, z + iz, logID, logMeta);
 						}
 					}
 					else {
 						if(ix == 0 && iz == 0) {
-							this.setBlockAndMetadata(world, x + ix, y + iy, z + iz, oliveLeavesID, oliveLeavesMeta);
+							this.setBlockAndMetadata(world, x + ix, y + iy, z + iz, leavesID, leavesMeta);
 						}
 					}
 				}

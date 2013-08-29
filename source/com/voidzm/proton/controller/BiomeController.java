@@ -53,12 +53,11 @@ public class BiomeController {
 		frozenForest = new BiomeProton(config.frozenforestID, BiomeProperties.FROZENFOREST, "Frozen Forest");
 		savanna = new BiomeProton(config.savannaID, BiomeProperties.SAVANNA, "Savanna").setSkyColor(0x9DB1CC).disableLakes();
 		sandyPeaks = new BiomeProton(config.sandypeaksID, BiomeProperties.SANDYPEAKS, "Sandy Peaks").setDesert();
-		alpine = new BiomeProton(config.alpineID, BiomeProperties.ALPINE, "Alpine").setSkyColor(0x6A95CC).setEnableSnow();
+		alpine = new BiomeProton(config.alpineID, BiomeProperties.ALPINE, "Alpine").setSkyColor(0x6A95CC).setSnowy();
 	}
 
 	private static void registerBiomes() {
-		addStandardBiome(sandyPeaks);
-		addStandardBiome(alpine);
+		addStandardBiome(insanityHeights);
 	}
 
 	private static void removeVanillaBiomes() {

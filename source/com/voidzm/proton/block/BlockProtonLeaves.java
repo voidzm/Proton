@@ -34,6 +34,7 @@ public class BlockProtonLeaves extends BlockProton implements IShearable {
 
 	public int leavesRepresented = 0;
 	private int colorMask = 0;
+	private int lightMask = 0;
 	private int[] adjacentTreeBlocks;
 	private int saplingID;
 
@@ -54,26 +55,40 @@ public class BlockProtonLeaves extends BlockProton implements IShearable {
 	}
 
 	public void addLeaves(String name, String icon, boolean autocolor) {
+		this.addLeaves(name, icon, autocolor, 0);
+	}
+
+	public void addLeaves(String name, String icon, boolean autocolor, int light) {
 		if(leavesRepresented >= 4) {
 			System.out.println("Block " + name + " not registered: this ID already contains four leaves!");
 		}
 		this.names.add(name + " Leaves");
 		textureNames[leavesRepresented] = "proton:leaves" + icon;
-		if(autocolor) {
-			switch(leavesRepresented) {
-				case 0:
+		switch(leavesRepresented) {
+			case 0:
+				if(autocolor) {
 					colorMask |= 1;
-					break;
-				case 1:
+				}
+				lightMask |= light;
+				break;
+			case 1:
+				if(autocolor) {
 					colorMask |= 2;
-					break;
-				case 2:
+				}
+				lightMask |= light << 4;
+				break;
+			case 2:
+				if(autocolor) {
 					colorMask |= 4;
-					break;
-				case 3:
+				}
+				lightMask |= light << 8;
+				break;
+			case 3:
+				if(autocolor) {
 					colorMask |= 8;
-					break;
-			}
+				}
+				lightMask |= light << 12;
+				break;
 		}
 		leavesRepresented++;
 	}
@@ -338,6 +353,23 @@ public class BlockProtonLeaves extends BlockProton implements IShearable {
 	@Override
 	public int idDropped(int par1, Random par2Random, int par3) {
 		return saplingID;
+	}
+
+	@Override
+	public int getLightValue(IBlockAccess world, int x, int y, int z) {
+		int metadata = world.getBlockMetadata(x, y, z) & 3;
+		switch(metadata) {
+			case 0:
+				return lightMask & 15;
+			case 1:
+				return (lightMask & 240) >> 4;
+			case 2:
+				return (lightMask & 3840) >> 8;
+			case 3:
+				return (lightMask & 61440) >> 12;
+			default:
+				return 0;
+		}
 	}
 
 }
