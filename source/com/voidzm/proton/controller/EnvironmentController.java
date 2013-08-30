@@ -6,6 +6,7 @@
 
 package com.voidzm.proton.controller;
 
+import com.voidzm.proton.gen.WorldGenMahoganyTree;
 import com.voidzm.proton.gen.WorldGenOliveTree;
 import com.voidzm.proton.gen.WorldGenStarwoodTree;
 import com.voidzm.proton.registry.ProtonLeavesRegistry;
@@ -18,7 +19,8 @@ public class EnvironmentController {
 
 	public enum TreeType {
 		OLIVE("Olive", "olive"),
-		STARWOOD("Starwood", "starwood");
+		STARWOOD("Starwood", "starwood"),
+		MAHOGANY("Mahogany", "mahogany");
 
 		public String treeName;
 		public String treeTexture;
@@ -46,6 +48,7 @@ public class EnvironmentController {
 		ProtonWoodRegistry.init(config);
 		ProtonWoodRegistry.registerLog(TreeType.OLIVE.treeName, TreeType.OLIVE.treeTexture);
 		ProtonWoodRegistry.registerLog(TreeType.STARWOOD.treeName, TreeType.STARWOOD.treeTexture);
+		ProtonWoodRegistry.registerLog(TreeType.MAHOGANY.treeName, TreeType.MAHOGANY.treeTexture);
 		ProtonWoodRegistry.registrationDone();
 	}
 
@@ -53,6 +56,7 @@ public class EnvironmentController {
 		ProtonLeavesRegistry.init(config);
 		ProtonLeavesRegistry.registerLeaves(TreeType.OLIVE.treeName, TreeType.OLIVE.treeTexture, true, new WorldGenOliveTree());
 		ProtonLeavesRegistry.registerLeaves(TreeType.STARWOOD.treeName, TreeType.STARWOOD.treeTexture, false, new WorldGenStarwoodTree(), 8);
+		ProtonLeavesRegistry.registerLeaves(TreeType.MAHOGANY.treeName, TreeType.MAHOGANY.treeTexture, true, new WorldGenMahoganyTree());
 		ProtonLeavesRegistry.registrationDone();
 	}
 

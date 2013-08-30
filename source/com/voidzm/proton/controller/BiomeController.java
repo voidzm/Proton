@@ -20,13 +20,17 @@ public class BiomeController {
 
 	private static ProtonConfiguration config;
 
-	public static BiomeGenBase extremeForest;
-	public static BiomeGenBase insanityHeights;
-	public static BiomeGenBase grassySummits;
-	public static BiomeGenBase frozenForest;
-	public static BiomeGenBase savanna;
-	public static BiomeGenBase sandyPeaks;
-	public static BiomeGenBase alpine;
+	public static BiomeProton extremeForest;
+	public static BiomeProton insanityHeights;
+	public static BiomeProton grassySummits;
+	public static BiomeProton frozenForest;
+	public static BiomeProton savanna;
+	public static BiomeProton sandyPeaks;
+	public static BiomeProton alpine;
+	public static BiomeProton starwoodForest;
+	public static BiomeProton rainforest;
+	public static BiomeProton temperateHills;
+	public static BiomeProton dustyHighlands;
 
 	public static void init(ProtonConfiguration cfg, boolean doVanillaBiomes) {
 		if(config != null) {
@@ -54,10 +58,14 @@ public class BiomeController {
 		savanna = new BiomeProton(config.savannaID, BiomeProperties.SAVANNA, "Savanna").setSkyColor(0x9DB1CC).disableLakes();
 		sandyPeaks = new BiomeProton(config.sandypeaksID, BiomeProperties.SANDYPEAKS, "Sandy Peaks").setDesert();
 		alpine = new BiomeProton(config.alpineID, BiomeProperties.ALPINE, "Alpine").setSkyColor(0x6A95CC).setSnowy();
+		starwoodForest = new BiomeProton(config.starwoodforestID, BiomeProperties.STARWOODFOREST, "Starwood Forest").setSkyColor(0xCADBD8);
+		rainforest = new BiomeProton(config.rainforestID, BiomeProperties.RAINFOREST, "Rainforest").setSkyColor(0xB7ADC4);
+		temperateHills = new BiomeProton(config.temperatehillsID, BiomeProperties.TEMPERATEHILLS, "Temperate Hills");
+		dustyHighlands = new BiomeProton(config.dustyhighlandsID, BiomeProperties.DUSTYHIGHLANDS, "Dusty Highlands").disableLakes().setSkyColor(0xD3DCE3);
 	}
 
 	private static void registerBiomes() {
-		addStandardBiome(insanityHeights);
+		addStandardBiome(dustyHighlands);
 	}
 
 	private static void removeVanillaBiomes() {

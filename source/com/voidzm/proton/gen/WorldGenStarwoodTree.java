@@ -34,7 +34,7 @@ public class WorldGenStarwoodTree extends WorldGenProtonTree {
 		if(rootBlockID != Block.grass.blockID && rootBlockID != Block.dirt.blockID) { // The root block is wrong
 			return false;
 		}
-		if(biomeCheck && world.getBiomeGenForCoords(x, z).biomeID != BiomeController.savanna.biomeID) { // The biome is wrong
+		if(biomeCheck && world.getBiomeGenForCoords(x, z).biomeID != BiomeController.starwoodForest.biomeID) { // The biome is wrong
 			return false;
 		}
 		int exposedTrunkHeight = rand.nextInt(3) + 1;

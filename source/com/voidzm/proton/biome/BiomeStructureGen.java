@@ -18,7 +18,9 @@ import net.minecraft.world.gen.feature.WorldGenTaiga2;
 import net.minecraft.world.gen.feature.WorldGenTrees;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
+import com.voidzm.proton.gen.WorldGenMahoganyTree;
 import com.voidzm.proton.gen.WorldGenOliveTree;
+import com.voidzm.proton.gen.WorldGenStarwoodTree;
 
 public class BiomeStructureGen {
 
@@ -31,7 +33,9 @@ public class BiomeStructureGen {
 		JUNGLESHRUB(new WorldGenShrub(0, 3), true),
 		BIGJUNGLETREE(new WorldGenHugeTrees(false, 20, 3, 3), true),
 		JUNGLETREE(new WorldGenTrees(false, 7, 3, 3, true), true),
-		OLIVETREE(new WorldGenOliveTree(), true);
+		OLIVETREE(new WorldGenOliveTree(), true),
+		STARWOODTREE(new WorldGenStarwoodTree(), true),
+		MAHOGANYTREE(new WorldGenMahoganyTree(), true);
 		public WorldGenerator gen;
 		public boolean isOnSurface;
 
@@ -59,8 +63,7 @@ public class BiomeStructureGen {
 				int x = chunkX + rand.nextInt(16) + 8;
 				int z = chunkZ + rand.nextInt(16) + 8;
 				int y;
-				if(this.type.isOnSurface)
-					y = world.getHeightValue(x, z);
+				if(this.type.isOnSurface) y = world.getHeightValue(x, z);
 				else y = rand.nextInt(128);
 				this.type.gen.generate(world, rand, x, y, z);
 			}
@@ -70,8 +73,7 @@ public class BiomeStructureGen {
 				int x = chunkX + rand.nextInt(16) + 8;
 				int z = chunkZ + rand.nextInt(16) + 8;
 				int y;
-				if(this.type.isOnSurface)
-					y = world.getHeightValue(x, z);
+				if(this.type.isOnSurface) y = world.getHeightValue(x, z);
 				else y = rand.nextInt(128);
 				this.type.gen.generate(world, rand, x, y, z);
 			}
