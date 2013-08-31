@@ -2,7 +2,7 @@
 >>> BlockProtonSlab.java <<<
 >>> Proton <<<
 >>> Copyright voidzm 2013 <<<
-*******/
+ *******/
 
 package com.voidzm.proton.block;
 
@@ -29,9 +29,9 @@ public class BlockProtonSlab extends BlockHalfSlab implements IRegisterable {
 	private RegisterData rdata = new RegisterData();
 
 	public int slabsRepresented = 0;
-	
+
 	private String internalNameString;
-	
+
 	public BlockProtonSlab(int par1, Material par2, String internal) {
 		super(par1, false, par2);
 		this.setCreativeTab(CreativeTabs.tabBlock);
@@ -42,16 +42,16 @@ public class BlockProtonSlab extends BlockHalfSlab implements IRegisterable {
 		else this.setStepSound(Block.soundStoneFootstep);
 		this.setUnlocalizedName("protonslab");
 		internalNameString = internal;
-		this.buildRegisterData();
 	}
-	
+
+	@Override
 	public void finalize() {
 		rdata.internalName = internalNameString;
 		rdata.isMulti = true;
 		rdata.externalNames = this.names;
 		rdata.itemBlockClass = ItemBlockProton.class;
 	}
-	
+
 	public void addSlab(String name, String icon) {
 		if(slabsRepresented >= 8) {
 			System.out.println("Block " + name + " not registered: this ID already contains eight slabs!");
@@ -60,31 +60,24 @@ public class BlockProtonSlab extends BlockHalfSlab implements IRegisterable {
 		textureNames[slabsRepresented] = "proton:" + icon;
 		slabsRepresented++;
 	}
-	
+
 	@Override
 	protected ItemStack createStackedBlock(int par1) {
-        return new ItemStack(this.blockID, 2, par1 & 7);
-    }
-	
-	private void buildRegisterData() {
-		rdata.internalName = "supercraftslab1";
-		rdata.isMulti = true;
-		rdata.externalNames = this.names;
-		rdata.itemBlockClass = ItemBlockProton.class;
+		return new ItemStack(this.blockID, 2, par1 & 7);
 	}
-	
+
 	@Override
 	public void registerIcons(IconRegister par1IconRegister) {
 		for(int i = 0; i < slabsRepresented; i++) {
 			textures[i] = par1IconRegister.registerIcon(textureNames[i]);
 		}
 	}
-	
+
 	@Override
 	public Icon getIcon(int side, int meta) {
 		return textures[meta & 7];
 	}
-	
+
 	@Override
 	public String getFullSlabName(int par1) {
 		if(par1 < 0 || par1 >= names.size()) {
@@ -92,7 +85,7 @@ public class BlockProtonSlab extends BlockHalfSlab implements IRegisterable {
 		}
 		return super.getUnlocalizedName() + "." + names.get(par1);
 	}
-	
+
 	@Override
 	public void getSubBlocks(int par1, CreativeTabs par2CreativeTabs, List par3List) {
 		for(int i = 0; i < slabsRepresented; i++) {
@@ -104,5 +97,5 @@ public class BlockProtonSlab extends BlockHalfSlab implements IRegisterable {
 	public RegisterData getRegisterData() {
 		return this.rdata;
 	}
-	
+
 }

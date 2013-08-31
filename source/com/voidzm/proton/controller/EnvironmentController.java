@@ -12,6 +12,7 @@ import com.voidzm.proton.gen.WorldGenStarwoodTree;
 import com.voidzm.proton.registry.ProtonLeavesRegistry;
 import com.voidzm.proton.registry.ProtonWoodRegistry;
 import com.voidzm.proton.util.ProtonConfiguration;
+import com.voidzm.proton.util.Startup;
 
 public class EnvironmentController {
 
@@ -42,6 +43,7 @@ public class EnvironmentController {
 		setupWood();
 		setupLeaves();
 		setupBiomes();
+		Startup.outputBlockStats();
 	}
 
 	private static void setupWood() {

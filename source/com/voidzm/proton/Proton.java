@@ -6,6 +6,7 @@
 
 package com.voidzm.proton;
 
+import com.voidzm.proton.controller.BlockController;
 import com.voidzm.proton.controller.DimensionController;
 import com.voidzm.proton.controller.EnvironmentController;
 import com.voidzm.proton.handler.EventsHandler;
@@ -42,6 +43,7 @@ public class Proton {
 
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
+		BlockController.init(config);
 		EnvironmentController.init(config);
 		proxy.registerRenderers();
 	}

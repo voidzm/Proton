@@ -2,11 +2,12 @@
 >>> BlockProton.java <<<
 >>> Proton <<<
 >>> Copyright voidzm 2013 <<<
-*******/
+ *******/
 
 package com.voidzm.proton.block;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -25,47 +26,49 @@ public class BlockProton extends Block {
 
 	private String internalName;
 	private String externalName;
-	
+
 	public boolean isMultiblock = false;
-	
+
 	private ArrayList<String> externalNames = null;
 	private Class<? extends ItemBlock> itemClass = null;
-	
+
 	private boolean dragonDestroys = true;
-	
+
+	private int altDropID = -1;
+
 	public BlockProton(int par1, Material par2Material) {
 		super(par1, par2Material);
 	}
-	
+
 	public BlockProton setInternalName(String newInternalName) {
 		this.internalName = newInternalName;
 		this.setUnlocalizedName(newInternalName);
 		return this;
 	}
-	
+
 	public BlockProton setExternalName(String newExternalName) {
 		this.externalName = newExternalName;
 		return this;
 	}
-	
+
 	public String internalName() {
 		return this.internalName;
 	}
-	
+
 	public String externalName() {
 		return this.externalName;
 	}
-	
+
 	public void makeMultiblock(ArrayList<String> names, Class<? extends ItemBlock> itemBlockClass) {
 		this.isMultiblock = true;
 		this.externalNames = names;
 		this.itemClass = itemBlockClass;
 	}
-	
+
 	public ArrayList<String> fetchExternalNames() {
 		return this.externalNames;
 	}
-	
+
 	public BlockProton register() {
 		if(!this.isMultiblock) {
 			GameRegistry.registerBlock(this, this.internalName);
@@ -84,7 +87,7 @@ public class BlockProton extends Block {
 		}
 		return this;
 	}
-	
+
 	public static void register(Block block, RegisterData data) {
 		if(!(block instanceof IRegisterable)) return;
 		if(!data.isMulti) {
@@ -103,15 +106,26 @@ public class BlockProton extends Block {
 			}
 		}
 	}
-	
+
 	public BlockProton makeDragonUnbreakable() {
 		this.dragonDestroys = false;
 		return this;
 	}
-	
+
 	@Override
 	public boolean canDragonDestroy(World world, int x, int y, int z) {
 		return this.dragonDestroys;
 	}
-	
+
+	@Override
+	public int idDropped(int par1, Random par2Random, int par3) {
+		if(this.altDropID == -1) return this.blockID;
+		else return this.altDropID;
+	}
+
+	public BlockProton setAlternateDrop(int id) {
+		this.altDropID = id;
+		return this;
+	}
+
 }

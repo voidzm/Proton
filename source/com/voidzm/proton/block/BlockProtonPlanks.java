@@ -2,7 +2,7 @@
 >>> BlockProtonPlanks.java <<<
 >>> Proton <<<
 >>> Copyright voidzm 2013 <<<
-*******/
+ *******/
 
 package com.voidzm.proton.block;
 
@@ -34,11 +34,12 @@ public class BlockProtonPlanks extends BlockProton {
 		this.setStepSound(Block.soundWoodFootstep);
 		this.setInternalName("protonplanks");
 	}
-	
+
+	@Override
 	public void finalize() {
 		this.makeMultiblock(names, ItemBlockProton.class);
 	}
-	
+
 	public void addPlanks(String name, String icon) {
 		if(planksRepresented >= 16) {
 			System.out.println("Block " + name + " not registered: this ID already contains sixteen planks!");
@@ -47,30 +48,29 @@ public class BlockProtonPlanks extends BlockProton {
 		textureNames[planksRepresented] = "proton:planks" + icon;
 		planksRepresented++;
 	}
-	
+
 	@Override
 	public void registerIcons(IconRegister par1IconRegister) {
 		for(int i = 0; i < planksRepresented; i++) {
 			textures[i] = par1IconRegister.registerIcon(textureNames[i]);
-			textures[i] = par1IconRegister.registerIcon(textureNames[i]);
 		}
 	}
-	
+
 	@Override
 	public Icon getIcon(int side, int meta) {
 		return textures[meta];
 	}
-	
+
 	@Override
 	public int damageDropped(int par1) {
 		return par1;
 	}
-	
+
 	@Override
 	public void getSubBlocks(int par1, CreativeTabs par2CreativeTabs, List par3List) {
 		for(int i = 0; i < planksRepresented; i++) {
 			par3List.add(new ItemStack(par1, 1, i));
 		}
 	}
-	
+
 }
