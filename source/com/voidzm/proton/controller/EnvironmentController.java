@@ -12,7 +12,6 @@ import com.voidzm.proton.gen.WorldGenStarwoodTree;
 import com.voidzm.proton.registry.ProtonLeavesRegistry;
 import com.voidzm.proton.registry.ProtonWoodRegistry;
 import com.voidzm.proton.util.ProtonConfiguration;
-import com.voidzm.proton.util.Startup;
 
 public class EnvironmentController {
 
@@ -21,7 +20,8 @@ public class EnvironmentController {
 	public enum TreeType {
 		OLIVE("Olive", "olive"),
 		STARWOOD("Starwood", "starwood"),
-		MAHOGANY("Mahogany", "mahogany");
+		MAHOGANY("Mahogany", "mahogany"),
+		WITHERED("Withered", "withered");
 
 		public String treeName;
 		public String treeTexture;
@@ -43,7 +43,6 @@ public class EnvironmentController {
 		setupWood();
 		setupLeaves();
 		setupBiomes();
-		Startup.outputBlockStats();
 	}
 
 	private static void setupWood() {
@@ -51,6 +50,7 @@ public class EnvironmentController {
 		ProtonWoodRegistry.registerLog(TreeType.OLIVE.treeName, TreeType.OLIVE.treeTexture);
 		ProtonWoodRegistry.registerLog(TreeType.STARWOOD.treeName, TreeType.STARWOOD.treeTexture);
 		ProtonWoodRegistry.registerLog(TreeType.MAHOGANY.treeName, TreeType.MAHOGANY.treeTexture);
+		ProtonWoodRegistry.registerLog(TreeType.WITHERED.treeName, TreeType.WITHERED.treeTexture);
 		ProtonWoodRegistry.registrationDone();
 	}
 

@@ -13,14 +13,17 @@ import net.minecraft.world.gen.feature.WorldGenBigTree;
 import net.minecraft.world.gen.feature.WorldGenForest;
 import net.minecraft.world.gen.feature.WorldGenHugeTrees;
 import net.minecraft.world.gen.feature.WorldGenShrub;
+import net.minecraft.world.gen.feature.WorldGenSwamp;
 import net.minecraft.world.gen.feature.WorldGenTaiga1;
 import net.minecraft.world.gen.feature.WorldGenTaiga2;
 import net.minecraft.world.gen.feature.WorldGenTrees;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
+import com.voidzm.proton.gen.WorldGenCanyonSurface;
 import com.voidzm.proton.gen.WorldGenMahoganyTree;
 import com.voidzm.proton.gen.WorldGenOliveTree;
 import com.voidzm.proton.gen.WorldGenStarwoodTree;
+import com.voidzm.proton.gen.WorldGenWitheredStumps;
 
 public class BiomeStructureGen {
 
@@ -33,9 +36,13 @@ public class BiomeStructureGen {
 		JUNGLESHRUB(new WorldGenShrub(0, 3), true),
 		BIGJUNGLETREE(new WorldGenHugeTrees(false, 20, 3, 3), true),
 		JUNGLETREE(new WorldGenTrees(false, 7, 3, 3, true), true),
+		SWAMPTREE(new WorldGenSwamp(), true),
 		OLIVETREE(new WorldGenOliveTree(), true),
 		STARWOODTREE(new WorldGenStarwoodTree(), true),
-		MAHOGANYTREE(new WorldGenMahoganyTree(), true);
+		MAHOGANYTREE(new WorldGenMahoganyTree(), true),
+		CANYONSURFACE(new WorldGenCanyonSurface(), true),
+		WITHEREDSTUMPS(new WorldGenWitheredStumps(), true);
+
 		public WorldGenerator gen;
 		public boolean isOnSurface;
 
@@ -43,6 +50,7 @@ public class BiomeStructureGen {
 			this.gen = generator;
 			this.isOnSurface = surface;
 		}
+
 	}
 
 	private StructureGenType type;

@@ -66,12 +66,18 @@ public class BiomeProton extends BiomeGenBase {
 	}
 
 	public BiomeProton setDesert() {
-		this.setDisableRain();
-		this.setNoAnimals();
+		this.setArid();
 		this.theBiomeDecorator.deadBushPerChunk = 2;
 		this.theBiomeDecorator.cactiPerChunk = 6;
 		this.topBlock = (byte)Block.sand.blockID;
 		this.fillerBlock = (byte)Block.sand.blockID;
+		return this;
+	}
+
+	public BiomeProton setArid() {
+		this.setDisableRain();
+		this.setNoAnimals();
+		this.disableLakes();
 		return this;
 	}
 

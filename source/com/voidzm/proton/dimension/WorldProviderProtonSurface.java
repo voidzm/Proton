@@ -6,10 +6,12 @@
 
 package com.voidzm.proton.dimension;
 
+import net.minecraft.block.Block;
 import net.minecraft.world.WorldProviderSurface;
 import net.minecraft.world.biome.BiomeGenBase;
 
 import com.voidzm.proton.biome.BiomeProton;
+import com.voidzm.proton.controller.BlockController;
 
 public class WorldProviderProtonSurface extends WorldProviderSurface {
 
@@ -22,6 +24,15 @@ public class WorldProviderProtonSurface extends WorldProviderSurface {
 			}
 		}
 		return false;
+	}
+
+	@Override
+	public boolean canCoordinateBeSpawn(int par1, int par2) {
+		int k = this.worldObj.getFirstUncoveredBlock(par1, par2);
+		if(k == Block.grass.blockID || k == Block.sand.blockID || k == BlockController.adobe.blockID) {
+			return true;
+		}
+		else return false;
 	}
 
 	/* This code activates the alternate chunk provider. */

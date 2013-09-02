@@ -57,6 +57,9 @@ public class ProtonConfiguration {
 	public int temperatehillsID;
 	public int dustyhighlandsID;
 	public int canyonID;
+	public int mossypoolsID;
+	public int shrublandID;
+	public int arcticdesertID;
 
 	/**** DIMENSION ****/
 
@@ -95,7 +98,7 @@ public class ProtonConfiguration {
 		protonstonestairsstartID = internalCfg.get(Configuration.CATEGORY_BLOCK, "protonstonestairsstartID", "1668").getInt();
 		protonstonestairsendID = internalCfg.get(Configuration.CATEGORY_BLOCK, "protonstonestairsendID", "1699").getInt();
 
-		adobeID = internalCfg.get(Configuration.CATEGORY_BLOCK, "adobeID", "1700").getInt();
+		adobeID = internalCfg.get(Configuration.CATEGORY_BLOCK, "adobeID", "216").getInt();
 		fracturedadobeID = internalCfg.get(Configuration.CATEGORY_BLOCK, "fracturedadobeID", "1701").getInt();
 		chiseledadobeID = internalCfg.get(Configuration.CATEGORY_BLOCK, "chiseledadobeID", "1702").getInt();
 	}
@@ -113,6 +116,9 @@ public class ProtonConfiguration {
 		temperatehillsID = internalCfg.get(this.CATEGORY_BIOME, "temperatehillsID", "59").getInt();
 		dustyhighlandsID = internalCfg.get(this.CATEGORY_BIOME, "dustyhighlandsID", "60").getInt();
 		canyonID = internalCfg.get(this.CATEGORY_BIOME, "canyonID", "61").getInt();
+		mossypoolsID = internalCfg.get(this.CATEGORY_BIOME, "mossypoolsID", "62").getInt();
+		shrublandID = internalCfg.get(this.CATEGORY_BIOME, "shrublandID", "63").getInt();
+		arcticdesertID = internalCfg.get(this.CATEGORY_BIOME, "arcticdesertID", "64").getInt();
 	}
 
 	private void loadDimensionConfig() {

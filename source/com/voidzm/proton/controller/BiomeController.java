@@ -31,6 +31,8 @@ public class BiomeController {
 	public static BiomeProton rainforest;
 	public static BiomeProton temperateHills;
 	public static BiomeProton dustyHighlands;
+	public static BiomeProton canyon;
+	public static BiomeProton mossyPools;
 
 	public static void init(ProtonConfiguration cfg, boolean doVanillaBiomes) {
 		if(config != null) {
@@ -43,7 +45,6 @@ public class BiomeController {
 		createBiomes();
 		registerBiomes();
 		if(!doVanillaBiomes) removeVanillaBiomes();
-		Startup.outputBiomeStats();
 	}
 
 	public static void init(ProtonConfiguration cfg) {
@@ -62,10 +63,12 @@ public class BiomeController {
 		rainforest = new BiomeProton(config.rainforestID, BiomeProperties.RAINFOREST, "Rainforest").setSkyColor(0xB7ADC4);
 		temperateHills = new BiomeProton(config.temperatehillsID, BiomeProperties.TEMPERATEHILLS, "Temperate Hills");
 		dustyHighlands = new BiomeProton(config.dustyhighlandsID, BiomeProperties.DUSTYHIGHLANDS, "Dusty Highlands").disableLakes().setSkyColor(0xD3DCE3);
+		canyon = new BiomeProton(config.canyonID, BiomeProperties.CANYON, "Canyon").setArid().setTopBlock((byte)BlockController.adobe.blockID).setFillerBlock((byte)BlockController.adobe.blockID).setSkyColor(0xDBC3AF);
+		mossyPools = new BiomeProton(config.mossypoolsID, BiomeProperties.MOSSYPOOLS, "Mossy Pools");
 	}
 
 	private static void registerBiomes() {
-		addStandardBiome(dustyHighlands);
+		addStandardBiome(mossyPools);
 	}
 
 	private static void removeVanillaBiomes() {

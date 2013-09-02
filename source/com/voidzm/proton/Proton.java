@@ -7,11 +7,13 @@
 package com.voidzm.proton;
 
 import com.voidzm.proton.controller.BlockController;
+import com.voidzm.proton.controller.CraftingController;
 import com.voidzm.proton.controller.DimensionController;
 import com.voidzm.proton.controller.EnvironmentController;
 import com.voidzm.proton.handler.EventsHandler;
 import com.voidzm.proton.util.Constants;
 import com.voidzm.proton.util.ProtonConfiguration;
+import com.voidzm.proton.util.Startup;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -45,7 +47,9 @@ public class Proton {
 	public void init(FMLInitializationEvent event) {
 		BlockController.init(config);
 		EnvironmentController.init(config);
+		CraftingController.init(config);
 		proxy.registerRenderers();
+		Startup.loadingDone();
 	}
 
 	@EventHandler

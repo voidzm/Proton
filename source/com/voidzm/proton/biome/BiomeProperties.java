@@ -24,7 +24,9 @@ public enum BiomeProperties {
 	STARWOODFOREST(2, 8, -999, 0.4F, 0.55F, 0.5F, 0.5F, 0xEAEDD8, 0xCCE69A, new BiomeStructureGen(StructureGenType.STARWOODTREE, true, 8)),
 	RAINFOREST(5, 8, 3, 0.3F, 1.4F, 1.2F, 1.0F, new BiomeStructureGen(StructureGenType.MAHOGANYTREE, false, 5), new BiomeStructureGen(StructureGenType.SMALLTREE, true, 8), new BiomeStructureGen(StructureGenType.JUNGLETREE, true, 8), new BiomeStructureGen(StructureGenType.JUNGLESHRUB, true, 12)),
 	TEMPERATEHILLS(4, 1, -999, 0.2F, 0.6F, 0.3F, 0.5F, new BiomeStructureGen(StructureGenType.SMALLTREE, true, 6), new BiomeStructureGen(StructureGenType.BIRCHTREE, true, 1), new BiomeStructureGen(StructureGenType.SPRUCETREE1, true, 2), new BiomeStructureGen(StructureGenType.SPRUCETREE2, true, 2)),
-	DUSTYHIGHLANDS(10, -999, -999, 5.0F, 5.0F, 0.5F, 0.1F, 0xBDC28D, 0xBDC28D, new BiomeStructureGen[] {});
+	DUSTYHIGHLANDS(10, -999, -999, 5.0F, 5.0F, 0.5F, 0.1F, 0xBDC28D, 0xBDC28D, new BiomeStructureGen[] {}),
+	CANYON(-999, -999, -999, 0.8F, 1.5F, 0.7F, 0.1F, new BiomeStructureGen(StructureGenType.CANYONSURFACE, false, 5), new BiomeStructureGen(StructureGenType.WITHEREDSTUMPS, false, 4)),
+	MOSSYPOOLS(10, 10, 3, -0.3F, 0.1F, 1.2F, 1.2F, new BiomeStructureGen(StructureGenType.SWAMPTREE, true, 15));
 
 	public int grass;
 	public int sugarCane;
