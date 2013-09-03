@@ -29,7 +29,7 @@ public class WorldProviderProtonSurface extends WorldProviderSurface {
 	@Override
 	public boolean canCoordinateBeSpawn(int par1, int par2) {
 		int k = this.worldObj.getFirstUncoveredBlock(par1, par2);
-		if(k == Block.grass.blockID || k == Block.sand.blockID || k == BlockController.adobe.blockID) {
+		if(k == Block.grass.blockID || k == Block.sand.blockID || k == BlockController.adobe.blockID || k == BlockController.arcticSand.blockID) {
 			return true;
 		}
 		else return false;

@@ -11,6 +11,7 @@ import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -26,6 +27,7 @@ public class BlockProton extends Block {
 
 	private String internalName;
 	private String externalName;
+	private String iconName;
 
 	public boolean isMultiblock = false;
 
@@ -51,12 +53,22 @@ public class BlockProton extends Block {
 		return this;
 	}
 
+	public BlockProton setIconName(String newIconName) {
+		this.iconName = newIconName;
+		return this;
+	}
+
 	public String internalName() {
 		return this.internalName;
 	}
 
 	public String externalName() {
 		return this.externalName;
+	}
+
+	@Override
+	public void registerIcons(IconRegister par1IconRegister) {
+		this.blockIcon = par1IconRegister.registerIcon(this.iconName);
 	}
 
 	public void makeMultiblock(ArrayList<String> names, Class<? extends ItemBlock> itemBlockClass) {

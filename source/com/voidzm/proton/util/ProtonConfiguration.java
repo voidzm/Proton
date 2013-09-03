@@ -40,6 +40,8 @@ public class ProtonConfiguration {
 	public int protonstonestairsendID;
 
 	public int adobeID;
+	public int arcticsandID;
+
 	public int fracturedadobeID;
 	public int chiseledadobeID;
 
@@ -99,6 +101,8 @@ public class ProtonConfiguration {
 		protonstonestairsendID = internalCfg.get(Configuration.CATEGORY_BLOCK, "protonstonestairsendID", "1699").getInt();
 
 		adobeID = internalCfg.get(Configuration.CATEGORY_BLOCK, "adobeID", "216").getInt();
+		arcticsandID = internalCfg.get(Configuration.CATEGORY_BLOCK, "arcticsandID", "217").getInt();
+
 		fracturedadobeID = internalCfg.get(Configuration.CATEGORY_BLOCK, "fracturedadobeID", "1701").getInt();
 		chiseledadobeID = internalCfg.get(Configuration.CATEGORY_BLOCK, "chiseledadobeID", "1702").getInt();
 	}

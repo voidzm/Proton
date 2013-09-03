@@ -33,6 +33,8 @@ public class BiomeController {
 	public static BiomeProton dustyHighlands;
 	public static BiomeProton canyon;
 	public static BiomeProton mossyPools;
+	public static BiomeProton shrubland;
+	public static BiomeProton arcticDesert;
 
 	public static void init(ProtonConfiguration cfg, boolean doVanillaBiomes) {
 		if(config != null) {
@@ -65,10 +67,12 @@ public class BiomeController {
 		dustyHighlands = new BiomeProton(config.dustyhighlandsID, BiomeProperties.DUSTYHIGHLANDS, "Dusty Highlands").disableLakes().setSkyColor(0xD3DCE3);
 		canyon = new BiomeProton(config.canyonID, BiomeProperties.CANYON, "Canyon").setArid().setTopBlock((byte)BlockController.adobe.blockID).setFillerBlock((byte)BlockController.adobe.blockID).setSkyColor(0xDBC3AF);
 		mossyPools = new BiomeProton(config.mossypoolsID, BiomeProperties.MOSSYPOOLS, "Mossy Pools");
+		shrubland = new BiomeProton(config.shrublandID, BiomeProperties.SHRUBLAND, "Shrubland").setNoAnimals().setSkyColor(0xB9D6F3);
+		arcticDesert = new BiomeProton(config.arcticdesertID, BiomeProperties.ARCTICDESERT, "Arctic Desert").setArid().setTopBlock((byte)BlockController.arcticSand.blockID).setFillerBlock((byte)BlockController.arcticSand.blockID).setSkyColor(0xEEEEEE);
 	}
 
 	private static void registerBiomes() {
-		addStandardBiome(mossyPools);
+		addStandardBiome(arcticDesert);
 	}
 
 	private static void removeVanillaBiomes() {

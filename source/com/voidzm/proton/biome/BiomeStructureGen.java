@@ -22,6 +22,7 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import com.voidzm.proton.gen.WorldGenCanyonSurface;
 import com.voidzm.proton.gen.WorldGenMahoganyTree;
 import com.voidzm.proton.gen.WorldGenOliveTree;
+import com.voidzm.proton.gen.WorldGenShrublandTree;
 import com.voidzm.proton.gen.WorldGenStarwoodTree;
 import com.voidzm.proton.gen.WorldGenWitheredStumps;
 
@@ -34,6 +35,7 @@ public class BiomeStructureGen {
 		SPRUCETREE1(new WorldGenTaiga1(), true),
 		SPRUCETREE2(new WorldGenTaiga2(false), true),
 		JUNGLESHRUB(new WorldGenShrub(0, 3), true),
+		OAKSHRUB(new WorldGenShrub(0, 0), true),
 		BIGJUNGLETREE(new WorldGenHugeTrees(false, 20, 3, 3), true),
 		JUNGLETREE(new WorldGenTrees(false, 7, 3, 3, true), true),
 		SWAMPTREE(new WorldGenSwamp(), true),
@@ -41,7 +43,8 @@ public class BiomeStructureGen {
 		STARWOODTREE(new WorldGenStarwoodTree(), true),
 		MAHOGANYTREE(new WorldGenMahoganyTree(), true),
 		CANYONSURFACE(new WorldGenCanyonSurface(), true),
-		WITHEREDSTUMPS(new WorldGenWitheredStumps(), true);
+		WITHEREDSTUMPS(new WorldGenWitheredStumps(), true),
+		SHRUBLANDTREE(new WorldGenShrublandTree(), true);
 
 		public WorldGenerator gen;
 		public boolean isOnSurface;

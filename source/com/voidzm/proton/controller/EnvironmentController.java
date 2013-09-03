@@ -8,6 +8,7 @@ package com.voidzm.proton.controller;
 
 import com.voidzm.proton.gen.WorldGenMahoganyTree;
 import com.voidzm.proton.gen.WorldGenOliveTree;
+import com.voidzm.proton.gen.WorldGenShrublandTree;
 import com.voidzm.proton.gen.WorldGenStarwoodTree;
 import com.voidzm.proton.registry.ProtonLeavesRegistry;
 import com.voidzm.proton.registry.ProtonWoodRegistry;
@@ -21,7 +22,8 @@ public class EnvironmentController {
 		OLIVE("Olive", "olive"),
 		STARWOOD("Starwood", "starwood"),
 		MAHOGANY("Mahogany", "mahogany"),
-		WITHERED("Withered", "withered");
+		WITHERED("Withered", "withered"),
+		SHRUBLAND("Shrubland", "shrubland");
 
 		public String treeName;
 		public String treeTexture;
@@ -51,6 +53,7 @@ public class EnvironmentController {
 		ProtonWoodRegistry.registerLog(TreeType.STARWOOD.treeName, TreeType.STARWOOD.treeTexture);
 		ProtonWoodRegistry.registerLog(TreeType.MAHOGANY.treeName, TreeType.MAHOGANY.treeTexture);
 		ProtonWoodRegistry.registerLog(TreeType.WITHERED.treeName, TreeType.WITHERED.treeTexture);
+		ProtonWoodRegistry.registerLog(TreeType.SHRUBLAND.treeName, TreeType.SHRUBLAND.treeTexture);
 		ProtonWoodRegistry.registrationDone();
 	}
 
@@ -59,6 +62,7 @@ public class EnvironmentController {
 		ProtonLeavesRegistry.registerLeaves(TreeType.OLIVE.treeName, TreeType.OLIVE.treeTexture, true, new WorldGenOliveTree());
 		ProtonLeavesRegistry.registerLeaves(TreeType.STARWOOD.treeName, TreeType.STARWOOD.treeTexture, false, new WorldGenStarwoodTree(), 8);
 		ProtonLeavesRegistry.registerLeaves(TreeType.MAHOGANY.treeName, TreeType.MAHOGANY.treeTexture, true, new WorldGenMahoganyTree());
+		ProtonLeavesRegistry.registerLeaves(TreeType.SHRUBLAND.treeName, TreeType.SHRUBLAND.treeTexture, true, new WorldGenShrublandTree());
 		ProtonLeavesRegistry.registrationDone();
 	}
 
