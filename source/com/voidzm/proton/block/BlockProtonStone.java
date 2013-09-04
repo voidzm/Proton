@@ -19,14 +19,14 @@ import com.voidzm.proton.item.ItemBlockProton;
 
 public class BlockProtonStone extends BlockProton {
 
-	private String[] textureNames = new String[16];
-	private Icon[] textures = new Icon[16];
+	private String[][] textureNames = new String[16][3];
+	private Icon[][] textures = new Icon[16][3];
 	private ArrayList<String> names = new ArrayList<String>();
 
 	public int stonesRepresented = 0;
 
-	private String standaloneTextureName = null;
-	private Icon standaloneTexture = null;
+	private String[] standaloneTextureNames = new String[3];
+	private Icon[] standaloneTextures = new Icon[3];
 
 	public BlockProtonStone(int par1) {
 		super(par1, Material.rock);
@@ -38,6 +38,10 @@ public class BlockProtonStone extends BlockProton {
 	}
 
 	public BlockProtonStone(int par1, String internal, String external, String texture) {
+		this(par1, internal, external, texture, texture, texture);
+	}
+
+	public BlockProtonStone(int par1, String internal, String external, String textureTop, String textureSide, String textureBottom) {
 		super(par1, Material.rock);
 		this.setStepSound(soundStoneFootstep);
 		this.setCreativeTab(CreativeTabs.tabBlock);
@@ -45,7 +49,9 @@ public class BlockProtonStone extends BlockProton {
 		this.setResistance(10.0F);
 		this.setInternalName(internal);
 		this.setExternalName(external);
-		this.standaloneTextureName = texture;
+		this.standaloneTextureNames[0] = textureTop;
+		this.standaloneTextureNames[1] = textureSide;
+		this.standaloneTextureNames[2] = textureBottom;
 	}
 
 	@Override
@@ -53,29 +59,53 @@ public class BlockProtonStone extends BlockProton {
 		this.makeMultiblock(names, ItemBlockProton.class);
 	}
 
-	public void addStone(String name, String icon) {
+	public void addStone(String name, String topIcon, String sideIcon, String bottomIcon) {
 		if(stonesRepresented >= 16) {
 			System.out.println("Block " + name + " not registered: this ID already contains sixteen stones!");
 		}
 		this.names.add(name);
-		textureNames[stonesRepresented] = "proton:" + icon;
+		textureNames[stonesRepresented][0] = "proton:" + topIcon;
+		textureNames[stonesRepresented][1] = "proton:" + sideIcon;
+		textureNames[stonesRepresented][2] = "proton:" + bottomIcon;
 		stonesRepresented++;
 	}
 
 	@Override
 	public void registerIcons(IconRegister par1IconRegister) {
-		if(standaloneTextureName != null) {
-			standaloneTexture = par1IconRegister.registerIcon(standaloneTextureName);
+		if(standaloneTextureNames[0] != null) {
+			standaloneTextures[0] = par1IconRegister.registerIcon(standaloneTextureNames[0]);
+			standaloneTextures[1] = par1IconRegister.registerIcon(standaloneTextureNames[1]);
+			standaloneTextures[2] = par1IconRegister.registerIcon(standaloneTextureNames[2]);
 		}
 		for(int i = 0; i < stonesRepresented; i++) {
-			textures[i] = par1IconRegister.registerIcon(textureNames[i]);
+			textures[i][0] = par1IconRegister.registerIcon(textureNames[i][0]);
+			textures[i][1] = par1IconRegister.registerIcon(textureNames[i][1]);
+			textures[i][2] = par1IconRegister.registerIcon(textureNames[i][2]);
 		}
 	}
 
 	@Override
 	public Icon getIcon(int side, int meta) {
-		if(standaloneTexture != null) return standaloneTexture;
-		else return textures[meta];
+		if(standaloneTextures[0] != null) {
+			switch(side) {
+				case 0:
+					return standaloneTextures[2];
+				case 1:
+					return standaloneTextures[0];
+				default:
+					return standaloneTextures[1];
+			}
+		}
+		else {
+			switch(side) {
+				case 0:
+					return textures[meta][2];
+				case 1:
+					return textures[meta][0];
+				default:
+					return textures[meta][1];
+			}
+		}
 	}
 
 	@Override
@@ -85,7 +115,7 @@ public class BlockProtonStone extends BlockProton {
 
 	@Override
 	public void getSubBlocks(int par1, CreativeTabs par2CreativeTabs, List par3List) {
-		if(standaloneTextureName != null) {
+		if(standaloneTextureNames[0] != null) {
 			super.getSubBlocks(par1, par2CreativeTabs, par3List);
 			return;
 		}

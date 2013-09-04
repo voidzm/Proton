@@ -45,6 +45,9 @@ public class ProtonConfiguration {
 	public int fracturedadobeID;
 	public int chiseledadobeID;
 
+	public int smootharcticsandstoneID;;
+	public int chiseledarcticsandstoneID;
+
 	/**** BIOME ****/
 
 	public int extremeforestID;
@@ -105,6 +108,9 @@ public class ProtonConfiguration {
 
 		fracturedadobeID = internalCfg.get(Configuration.CATEGORY_BLOCK, "fracturedadobeID", "1701").getInt();
 		chiseledadobeID = internalCfg.get(Configuration.CATEGORY_BLOCK, "chiseledadobeID", "1702").getInt();
+
+		smootharcticsandstoneID = internalCfg.get(Configuration.CATEGORY_BLOCK, "smootharcticsandstoneID", "1703").getInt();
+		chiseledarcticsandstoneID = internalCfg.get(Configuration.CATEGORY_BLOCK, "chiseledarcticsandstoneID", "1704").getInt();
 	}
 
 	private void loadBiomeConfig() {

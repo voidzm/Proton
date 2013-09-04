@@ -43,8 +43,11 @@ public class CraftingController {
 	}
 
 	private static void createBlockRecipes() {
-		GameRegistry.addRecipe(new ItemStack(ProtonStoneRegistry.fetchStoneIDForName("Adobe Bricks"), 4, 0), new Object[] {"AA", "AA", 'A', BlockController.adobe});
-		GameRegistry.addRecipe(new ItemStack(BlockController.chiseledAdobe), new Object[] {"A", "A", 'A', new ItemStack(ProtonStoneRegistry.fetchSlabIDForName("Adobe Bricks"), 1, 0)});
-	}
+		GameRegistry.addRecipe(new ItemStack(ProtonStoneRegistry.fetchStoneIDForName("Adobe Bricks"), 4, ProtonStoneRegistry.fetchStoneMetaForName("Adobe Bricks")), new Object[] {"AA", "AA", 'A', BlockController.adobe});
+		GameRegistry.addRecipe(new ItemStack(BlockController.chiseledAdobe), new Object[] {"A", "A", 'A', new ItemStack(ProtonStoneRegistry.fetchSlabIDForName("Adobe Bricks"), 1, ProtonStoneRegistry.fetchSlabMetaForName("Adobe Bricks"))});
 
+		GameRegistry.addRecipe(new ItemStack(ProtonStoneRegistry.fetchStoneIDForName("Arctic Sandstone"), 4, ProtonStoneRegistry.fetchStoneMetaForName("Arctic Sandstone")), new Object[] {"AA", "AA", 'A', BlockController.arcticSand});
+		GameRegistry.addRecipe(new ItemStack(BlockController.smoothArcticSandstone, 4, 0), new Object[] {"AA", "AA", 'A', new ItemStack(ProtonStoneRegistry.fetchStoneIDForName("Arctic Sandstone"), 1, ProtonStoneRegistry.fetchStoneMetaForName("Arctic Sandstone"))});
+		GameRegistry.addRecipe(new ItemStack(BlockController.chiseledArcticSandstone), new Object[] {"A", "A", 'A', new ItemStack(ProtonStoneRegistry.fetchSlabIDForName("Arctic Sandstone"), 1, ProtonStoneRegistry.fetchSlabMetaForName("Arctic Sandstone"))});
+	}
 }

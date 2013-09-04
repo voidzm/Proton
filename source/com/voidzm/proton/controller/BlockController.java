@@ -22,6 +22,9 @@ public class BlockController {
 	public static BlockProton fracturedAdobe;
 	public static BlockProton chiseledAdobe;
 
+	public static BlockProton smoothArcticSandstone;
+	public static BlockProton chiseledArcticSandstone;
+
 	public static void init(ProtonConfiguration cfg) {
 		if(config != null) {
 			throw new RuntimeException("Block controller already loaded!");
@@ -46,10 +49,14 @@ public class BlockController {
 	private static void createStone() {
 		ProtonStoneRegistry.init(config);
 		ProtonStoneRegistry.registerStone("Adobe Bricks", "Adobe Bricks Slab", "Adobe Brick Stairs", "adobebricks");
+		ProtonStoneRegistry.registerStone("Arctic Sandstone", "Arctic Sandstone Slab", "Arctic Sandstone Stairs", "arcticsandstone_top", "arcticsandstone_side", "arcticsandstone_bottom");
 		ProtonStoneRegistry.registrationDone();
 
 		fracturedAdobe = new BlockProtonStone(config.fracturedadobeID, "fracturedadobe", "Fractured Adobe", "proton:fracturedadobe").register();
 		chiseledAdobe = new BlockProtonStone(config.chiseledadobeID, "chiseledadobe", "Chiseled Adobe", "proton:chiseledadobe").register();
+
+		smoothArcticSandstone = new BlockProtonStone(config.smootharcticsandstoneID, "smootharcticsandstone", "Smooth Arctic Sandstone", "proton:arcticsandstone_top", "proton:arcticsandstone_smooth", "proton:arcticsandstone_top").register();
+		chiseledArcticSandstone = new BlockProtonStone(config.chiseledarcticsandstoneID, "chiseledarcticsandstone", "Chiseled Arctic Sandstone", "proton:arcticsandstone_top", "proton:arcticsandstone_chiseled", "proton:arcticsandstone_top").register();
 	}
 
 }

@@ -122,6 +122,10 @@ public class ProtonStoneRegistry {
 	}
 
 	public static void registerStone(String mainName, String slabName, String stairsName, String texture) {
+		registerStone(mainName, slabName, stairsName, texture, texture, texture);
+	}
+
+	public static void registerStone(String mainName, String slabName, String stairsName, String textureTop, String textureSide, String textureBottom) {
 		if(finalized == true) { /* New logs cannot be added once everything has been registered and setup with Forge. */
 			System.out.println("Registration of " + mainName + " failed: ProtonStoneRegistry is already finalized.");
 			return;
@@ -151,7 +155,7 @@ public class ProtonStoneRegistry {
 			constructingStone = new BlockProtonStone(stoneIDStart + protonStones.size());
 			constructingStone.setInternalName("protonstone" + (protonStones.size() + 1));
 		}
-		constructingStone.addStone(mainName, texture);
+		constructingStone.addStone(mainName, textureTop, textureSide, textureBottom);
 		stoneID = constructingStone.blockID;
 		stoneMeta = constructingStone.stonesRepresented - 1;
 
@@ -173,7 +177,7 @@ public class ProtonStoneRegistry {
 			}
 			constructingSlab = new BlockProtonSlab(slabIDStart + protonSlabs.size(), Material.rock, "protonstoneslab" + (protonSlabs.size() + 1));
 		}
-		constructingSlab.addSlab(slabName, texture);
+		constructingSlab.addSlab(slabName, textureTop, textureSide, textureBottom);
 		slabID = constructingSlab.blockID;
 		slabMeta = constructingSlab.slabsRepresented - 1;
 		if(constructingSlab.slabsRepresented >= 8) {

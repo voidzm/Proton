@@ -23,8 +23,8 @@ import com.voidzm.proton.util.RegisterData;
 
 public class BlockProtonSlab extends BlockHalfSlab implements IRegisterable {
 
-	private String[] textureNames = new String[8];
-	private Icon[] textures = new Icon[8];
+	private String[][] textureNames = new String[8][3];
+	private Icon[][] textures = new Icon[8][3];
 	private ArrayList<String> names = new ArrayList<String>();
 	private RegisterData rdata = new RegisterData();
 
@@ -53,11 +53,17 @@ public class BlockProtonSlab extends BlockHalfSlab implements IRegisterable {
 	}
 
 	public void addSlab(String name, String icon) {
+		this.addSlab(name, icon, icon, icon);
+	}
+
+	public void addSlab(String name, String iconTop, String iconSide, String iconBottom) {
 		if(slabsRepresented >= 8) {
 			System.out.println("Block " + name + " not registered: this ID already contains eight slabs!");
 		}
 		this.names.add(name);
-		textureNames[slabsRepresented] = "proton:" + icon;
+		textureNames[slabsRepresented][0] = "proton:" + iconTop;
+		textureNames[slabsRepresented][1] = "proton:" + iconSide;
+		textureNames[slabsRepresented][2] = "proton:" + iconBottom;
 		slabsRepresented++;
 	}
 
@@ -69,13 +75,15 @@ public class BlockProtonSlab extends BlockHalfSlab implements IRegisterable {
 	@Override
 	public void registerIcons(IconRegister par1IconRegister) {
 		for(int i = 0; i < slabsRepresented; i++) {
-			textures[i] = par1IconRegister.registerIcon(textureNames[i]);
+			textures[i][0] = par1IconRegister.registerIcon(textureNames[i][0]);
+			textures[i][1] = par1IconRegister.registerIcon(textureNames[i][1]);
+			textures[i][2] = par1IconRegister.registerIcon(textureNames[i][2]);
 		}
 	}
 
 	@Override
 	public Icon getIcon(int side, int meta) {
-		return textures[meta & 7];
+		return textures[meta & 7][side == 0 ? 2 : side == 1 ? 0 : 1];
 	}
 
 	@Override
