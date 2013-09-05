@@ -10,6 +10,7 @@ import com.voidzm.proton.controller.BlockController;
 import com.voidzm.proton.controller.CraftingController;
 import com.voidzm.proton.controller.DimensionController;
 import com.voidzm.proton.controller.EnvironmentController;
+import com.voidzm.proton.controller.ItemController;
 import com.voidzm.proton.handler.EventsHandler;
 import com.voidzm.proton.util.Constants;
 import com.voidzm.proton.util.ProtonConfiguration;
@@ -46,6 +47,7 @@ public class Proton {
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
 		BlockController.init(config);
+		ItemController.init(config);
 		EnvironmentController.init(config);
 		CraftingController.init(config);
 		proxy.registerRenderers();

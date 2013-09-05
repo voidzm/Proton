@@ -45,8 +45,12 @@ public class ProtonConfiguration {
 	public int fracturedadobeID;
 	public int chiseledadobeID;
 
-	public int smootharcticsandstoneID;;
+	public int smootharcticsandstoneID;
 	public int chiseledarcticsandstoneID;
+
+	/**** ITEM ****/
+
+	public int snowbrickID;
 
 	/**** BIOME ****/
 
@@ -76,6 +80,7 @@ public class ProtonConfiguration {
 		internalCfg.save();
 		internalCfg.load();
 		this.loadBlockConfig();
+		this.loadItemConfig();
 		this.loadBiomeConfig();
 		this.loadDimensionConfig();
 		internalCfg.save();
@@ -111,6 +116,10 @@ public class ProtonConfiguration {
 
 		smootharcticsandstoneID = internalCfg.get(Configuration.CATEGORY_BLOCK, "smootharcticsandstoneID", "1703").getInt();
 		chiseledarcticsandstoneID = internalCfg.get(Configuration.CATEGORY_BLOCK, "chiseledarcticsandstoneID", "1704").getInt();
+	}
+
+	private void loadItemConfig() {
+		snowbrickID = internalCfg.get(Configuration.CATEGORY_ITEM, "snowbrickID", "23000").getInt();
 	}
 
 	private void loadBiomeConfig() {

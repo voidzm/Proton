@@ -50,6 +50,7 @@ public class BlockController {
 		ProtonStoneRegistry.init(config);
 		ProtonStoneRegistry.registerStone("Adobe Bricks", "Adobe Bricks Slab", "Adobe Brick Stairs", "adobebricks");
 		ProtonStoneRegistry.registerStone("Arctic Sandstone", "Arctic Sandstone Slab", "Arctic Sandstone Stairs", "arcticsandstone_top", "arcticsandstone_side", "arcticsandstone_bottom");
+		ProtonStoneRegistry.registerStone("Snow Bricks", "Snow Bricks Slab", "Snow Brick Stairs", "snowbricks");
 		ProtonStoneRegistry.registrationDone();
 
 		fracturedAdobe = new BlockProtonStone(config.fracturedadobeID, "fracturedadobe", "Fractured Adobe", "proton:fracturedadobe").register();

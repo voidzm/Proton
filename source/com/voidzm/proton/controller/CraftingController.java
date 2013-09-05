@@ -6,6 +6,7 @@
 
 package com.voidzm.proton.controller;
 
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 
@@ -40,6 +41,7 @@ public class CraftingController {
 
 	private static void createSmelting() {
 		GameRegistry.addSmelting(BlockController.fracturedAdobe.blockID, new ItemStack(BlockController.adobe), 0.1F);
+		GameRegistry.addSmelting(Item.snowball.itemID, new ItemStack(ItemController.snowBrick), 0.1F);
 	}
 
 	private static void createBlockRecipes() {
@@ -49,5 +51,7 @@ public class CraftingController {
 		GameRegistry.addRecipe(new ItemStack(ProtonStoneRegistry.fetchStoneIDForName("Arctic Sandstone"), 4, ProtonStoneRegistry.fetchStoneMetaForName("Arctic Sandstone")), new Object[] {"AA", "AA", 'A', BlockController.arcticSand});
 		GameRegistry.addRecipe(new ItemStack(BlockController.smoothArcticSandstone, 4, 0), new Object[] {"AA", "AA", 'A', new ItemStack(ProtonStoneRegistry.fetchStoneIDForName("Arctic Sandstone"), 1, ProtonStoneRegistry.fetchStoneMetaForName("Arctic Sandstone"))});
 		GameRegistry.addRecipe(new ItemStack(BlockController.chiseledArcticSandstone), new Object[] {"A", "A", 'A', new ItemStack(ProtonStoneRegistry.fetchSlabIDForName("Arctic Sandstone"), 1, ProtonStoneRegistry.fetchSlabMetaForName("Arctic Sandstone"))});
+
+		GameRegistry.addRecipe(new ItemStack(ProtonStoneRegistry.fetchStoneIDForName("Snow Bricks"), 4, ProtonStoneRegistry.fetchStoneMetaForName("Snow Bricks")), new Object[] {"ss", "ss", 's', ItemController.snowBrick});
 	}
 }
