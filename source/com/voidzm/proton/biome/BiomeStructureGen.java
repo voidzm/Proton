@@ -11,7 +11,6 @@ import java.util.Random;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenBigTree;
 import net.minecraft.world.gen.feature.WorldGenForest;
-import net.minecraft.world.gen.feature.WorldGenHugeTrees;
 import net.minecraft.world.gen.feature.WorldGenShrub;
 import net.minecraft.world.gen.feature.WorldGenSwamp;
 import net.minecraft.world.gen.feature.WorldGenTaiga1;
@@ -20,6 +19,7 @@ import net.minecraft.world.gen.feature.WorldGenTrees;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
 import com.voidzm.proton.gen.WorldGenCanyonSurface;
+import com.voidzm.proton.gen.WorldGenLargeJungleTree;
 import com.voidzm.proton.gen.WorldGenMahoganyTree;
 import com.voidzm.proton.gen.WorldGenOliveTree;
 import com.voidzm.proton.gen.WorldGenShrublandTree;
@@ -36,7 +36,7 @@ public class BiomeStructureGen {
 		SPRUCETREE2(new WorldGenTaiga2(false), true),
 		JUNGLESHRUB(new WorldGenShrub(0, 3), true),
 		OAKSHRUB(new WorldGenShrub(0, 0), true),
-		BIGJUNGLETREE(new WorldGenHugeTrees(false, 20, 3, 3), true),
+		BIGJUNGLETREE(new WorldGenLargeJungleTree(), true),
 		JUNGLETREE(new WorldGenTrees(false, 7, 3, 3, true), true),
 		SWAMPTREE(new WorldGenSwamp(), true),
 		OLIVETREE(new WorldGenOliveTree(), true),

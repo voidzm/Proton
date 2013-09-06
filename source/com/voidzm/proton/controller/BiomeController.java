@@ -6,6 +6,7 @@
 
 package com.voidzm.proton.controller;
 
+import net.minecraft.block.Block;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.BiomeManager;
 
@@ -35,6 +36,9 @@ public class BiomeController {
 	public static BiomeProton mossyPools;
 	public static BiomeProton shrubland;
 	public static BiomeProton arcticDesert;
+	public static BiomeProton snowyWasteland;
+	public static BiomeProton ancientForest;
+	public static BiomeProton ancientJungle;
 
 	public static void init(ProtonConfiguration cfg, boolean doVanillaBiomes) {
 		if(config != null) {
@@ -69,10 +73,30 @@ public class BiomeController {
 		mossyPools = new BiomeProton(config.mossypoolsID, BiomeProperties.MOSSYPOOLS, "Mossy Pools");
 		shrubland = new BiomeProton(config.shrublandID, BiomeProperties.SHRUBLAND, "Shrubland").setNoAnimals().setSkyColor(0xB9D6F3);
 		arcticDesert = new BiomeProton(config.arcticdesertID, BiomeProperties.ARCTICDESERT, "Arctic Desert").setArid().setTopBlock((byte)BlockController.arcticSand.blockID).setFillerBlock((byte)BlockController.arcticSand.blockID).setSkyColor(0xEEEEEE);
+		snowyWasteland = new BiomeProton(config.snowywastelandID, BiomeProperties.SNOWYWASTELAND, "Snowy Wasteland").setNoAnimals().setTopBlock((byte)Block.blockSnow.blockID).setFillerBlock((byte)Block.blockSnow.blockID).setSkyColor(0xDDDDFF);
+		ancientForest = new BiomeProton(config.ancientforestID, BiomeProperties.ANCIENTFOREST, "Ancient Forest");
+		ancientJungle = new BiomeProton(config.ancientjungleID, BiomeProperties.ANCIENTJUNGLE, "Ancient Jungle");
 	}
 
 	private static void registerBiomes() {
+		addStandardBiome(extremeForest);
+		addStandardBiome(insanityHeights);
+		addStandardBiome(grassySummits);
+		addStandardBiome(frozenForest);
+		addVillageBiome(savanna);
+		addStandardBiome(sandyPeaks);
+		addStandardBiome(alpine);
+		addStandardBiome(starwoodForest);
+		addStandardBiome(rainforest);
+		addStandardBiome(temperateHills);
+		addStandardBiome(dustyHighlands);
+		addStandardBiome(canyon);
+		addStandardBiome(mossyPools);
+		addVillageBiome(shrubland);
 		addStandardBiome(arcticDesert);
+		addStandardBiome(snowyWasteland);
+		addStandardBiome(ancientForest);
+		addStandardBiome(ancientJungle);
 	}
 
 	private static void removeVanillaBiomes() {

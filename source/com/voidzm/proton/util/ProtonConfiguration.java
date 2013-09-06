@@ -69,6 +69,9 @@ public class ProtonConfiguration {
 	public int mossypoolsID;
 	public int shrublandID;
 	public int arcticdesertID;
+	public int snowywastelandID;
+	public int ancientforestID;
+	public int ancientjungleID;
 
 	/**** DIMENSION ****/
 
@@ -138,6 +141,9 @@ public class ProtonConfiguration {
 		mossypoolsID = internalCfg.get(this.CATEGORY_BIOME, "mossypoolsID", "62").getInt();
 		shrublandID = internalCfg.get(this.CATEGORY_BIOME, "shrublandID", "63").getInt();
 		arcticdesertID = internalCfg.get(this.CATEGORY_BIOME, "arcticdesertID", "64").getInt();
+		snowywastelandID = internalCfg.get(this.CATEGORY_BIOME, "snowywastelandID", "65").getInt();
+		ancientforestID = internalCfg.get(this.CATEGORY_BIOME, "ancientforestID", "66").getInt();
+		ancientjungleID = internalCfg.get(this.CATEGORY_BIOME, "ancientjungleID", "67").getInt();
 	}
 
 	private void loadDimensionConfig() {
