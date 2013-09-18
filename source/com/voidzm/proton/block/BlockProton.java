@@ -32,7 +32,7 @@ public class BlockProton extends Block {
 	public boolean isMultiblock = false;
 
 	private ArrayList<String> externalNames = null;
-	private Class<? extends ItemBlock> itemClass = null;
+	public Class<? extends ItemBlock> itemClass = null;
 
 	private boolean dragonDestroys = true;
 
@@ -78,13 +78,27 @@ public class BlockProton extends Block {
 	}
 
 	public ArrayList<String> fetchExternalNames() {
-		return this.externalNames;
+		if(this.externalNames != null) {
+			return this.externalNames;
+		}
+		else {
+			ArrayList<String> fakeExternalNames = new ArrayList<String>();
+			fakeExternalNames.add(this.externalName);
+			return fakeExternalNames;
+		}
 	}
 
 	public BlockProton register() {
 		if(!this.isMultiblock) {
-			GameRegistry.registerBlock(this, this.internalName);
-			LanguageRegistry.addName(this, this.externalName);
+			if(this.itemClass == null) {
+				GameRegistry.registerBlock(this, this.internalName);
+				LanguageRegistry.addName(this, this.externalName);
+			}
+			else {
+				GameRegistry.registerBlock(this, this.itemClass, this.internalName);
+				ItemStack stack = new ItemStack(this, 1, 0);
+				LanguageRegistry.addName(stack, this.externalName);
+			}
 			Startup.blockCreated();
 		}
 		else {

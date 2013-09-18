@@ -7,6 +7,7 @@
 package com.voidzm.proton.controller;
 
 import com.voidzm.proton.block.BlockArcticSand;
+import com.voidzm.proton.block.BlockMoss;
 import com.voidzm.proton.block.BlockProton;
 import com.voidzm.proton.block.BlockProtonStone;
 import com.voidzm.proton.registry.ProtonStoneRegistry;
@@ -24,6 +25,8 @@ public class BlockController {
 
 	public static BlockProton smoothArcticSandstone;
 	public static BlockProton chiseledArcticSandstone;
+
+	public static BlockProton moss;
 
 	public static void init(ProtonConfiguration cfg) {
 		if(config != null) {
@@ -58,6 +61,8 @@ public class BlockController {
 
 		smoothArcticSandstone = new BlockProtonStone(config.smootharcticsandstoneID, "smootharcticsandstone", "Smooth Arctic Sandstone", "proton:arcticsandstone_top", "proton:arcticsandstone_smooth", "proton:arcticsandstone_top").register();
 		chiseledArcticSandstone = new BlockProtonStone(config.chiseledarcticsandstoneID, "chiseledarcticsandstone", "Chiseled Arctic Sandstone", "proton:arcticsandstone_top", "proton:arcticsandstone_chiseled", "proton:arcticsandstone_top").register();
+
+		moss = new BlockMoss(config.mossID).register();
 	}
 
 }

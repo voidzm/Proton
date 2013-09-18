@@ -48,12 +48,9 @@ public class EventsHandler {
 	@ForgeSubscribe
 	public void onPopulateChunk(PopulateChunkEvent.Populate event) {
 		if(event.type != PopulateChunkEvent.Populate.EventType.LAKE) return;
-		System.out.println("Lake.");
 		BiomeGenBase biome = event.world.getBiomeGenForCoords(event.chunkX << 4, event.chunkZ << 4);
 		if(biome instanceof BiomeProton) {
-			System.out.println("Proton.");
 			if(((BiomeProton)biome).doLakeGen == false) {
-				System.out.println("Denied.");
 				event.setResult(Result.DENY);
 			}
 		}

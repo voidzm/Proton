@@ -541,10 +541,6 @@ public class ChunkProviderProton implements IChunkProvider {
 		return true;
 	}
 
-	@Override
-	public void func_104112_b() {
-	}
-
 	/**
 	 * Unloads chunks that are marked to be unloaded. This is not guaranteed to unload every such chunk.
 	 */
@@ -599,6 +595,13 @@ public class ChunkProviderProton implements IChunkProvider {
 			this.strongholdGenerator.generate(this, this.worldObj, par1, par2, (byte[])null);
 			this.scatteredFeatureGenerator.generate(this, this.worldObj, par1, par2, (byte[])null);
 		}
+	}
+
+	/* (non-Javadoc)
+	 * @see net.minecraft.world.chunk.IChunkProvider#saveExtraData()
+	 */
+	@Override
+	public void saveExtraData() {
 	}
 
 }

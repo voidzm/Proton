@@ -48,6 +48,8 @@ public class ProtonConfiguration {
 	public int smootharcticsandstoneID;
 	public int chiseledarcticsandstoneID;
 
+	public int mossID;
+
 	/**** ITEM ****/
 
 	public int snowbrickID;
@@ -119,6 +121,8 @@ public class ProtonConfiguration {
 
 		smootharcticsandstoneID = internalCfg.get(Configuration.CATEGORY_BLOCK, "smootharcticsandstoneID", "1703").getInt();
 		chiseledarcticsandstoneID = internalCfg.get(Configuration.CATEGORY_BLOCK, "chiseledarcticsandstoneID", "1704").getInt();
+
+		mossID = internalCfg.get(Configuration.CATEGORY_BLOCK, "mossID", "1705").getInt();
 	}
 
 	private void loadItemConfig() {

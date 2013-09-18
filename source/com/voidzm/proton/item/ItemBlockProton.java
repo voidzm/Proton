@@ -21,11 +21,11 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemBlockProton extends ItemBlock {
 
-	private int blockID;
+	private Block block;
 
 	public ItemBlockProton(int par1) {
 		super(par1);
-		this.blockID = par1 + 256;
+		this.block = Block.blocksList[this.getBlockID()];
 		setHasSubtypes(true);
 		setUnlocalizedName("itemblockproton");
 	}
@@ -33,15 +33,14 @@ public class ItemBlockProton extends ItemBlock {
 	@Override
 	public int getMetadata(int par1) {
 		return par1;
-	} 
+	}
 
 	@Override
 	public String getUnlocalizedName(ItemStack itemstack) {
-		Block block = Block.blocksList[this.blockID];
 		if(block == null) return null;
 		if(block instanceof BlockProton) {
-			BlockProton supercraftBlock = (BlockProton)block;
-			ArrayList<String> names = supercraftBlock.fetchExternalNames();
+			BlockProton protonBlock = (BlockProton)block;
+			ArrayList<String> names = protonBlock.fetchExternalNames();
 			return this.getUnlocalizedName() + "." + names.get(itemstack.getItemDamage());
 		}
 		if(block instanceof IRegisterable) {
@@ -54,9 +53,14 @@ public class ItemBlockProton extends ItemBlock {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public Icon getIconFromDamage(int par1) {
-		Block block = Block.blocksList[this.blockID];
 		if(block == null) return null;
 		return block.getIcon(0, par1);
+	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public int getColorFromItemStack(ItemStack par1ItemStack, int par2) {
+		return this.block.getRenderColor(par1ItemStack.getItemDamage());
 	}
 
 }
