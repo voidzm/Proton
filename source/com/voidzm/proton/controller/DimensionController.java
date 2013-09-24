@@ -8,6 +8,7 @@ package com.voidzm.proton.controller;
 
 import net.minecraftforge.common.DimensionManager;
 
+import com.voidzm.proton.dimension.WorldProviderCrevasse;
 import com.voidzm.proton.dimension.WorldProviderProtonSurface;
 import com.voidzm.proton.util.ProtonConfiguration;
 
@@ -34,6 +35,8 @@ public class DimensionController {
 	}
 
 	private static void createDimensions() {
+		DimensionManager.registerProviderType(config.crevasseID, WorldProviderCrevasse.class, true);
+		DimensionManager.registerDimension(config.crevasseID, config.crevasseID);
 	}
 
 }

@@ -50,6 +50,22 @@ public class ProtonConfiguration {
 
 	public int mossID;
 
+	public int starstoneID;
+	public int brokenstarstoneID;
+	public int chiseledstarstoneID;
+
+	public int acranaID;
+	public int crackedacranaID;
+	public int chiseledacranaID;
+	public int adumbratedacranaID;
+
+	public int ijoliteID;
+	public int ijolitestairsID;
+
+	public int overworldcrevasseportalID;
+
+	public int vaporID;
+
 	/**** ITEM ****/
 
 	public int snowbrickID;
@@ -74,11 +90,13 @@ public class ProtonConfiguration {
 	public int snowywastelandID;
 	public int ancientforestID;
 	public int ancientjungleID;
+	public int crevassebiomeID;
 
 	/**** DIMENSION ****/
 
 	public boolean doalternatesurface;
 	public int alternatesurfaceproviderID;
+	public int crevasseID;
 
 	public ProtonConfiguration(File file) {
 		internalCfg = new Configuration(file);
@@ -123,6 +141,22 @@ public class ProtonConfiguration {
 		chiseledarcticsandstoneID = internalCfg.get(Configuration.CATEGORY_BLOCK, "chiseledarcticsandstoneID", "1704").getInt();
 
 		mossID = internalCfg.get(Configuration.CATEGORY_BLOCK, "mossID", "1705").getInt();
+
+		starstoneID = internalCfg.get(Configuration.CATEGORY_BLOCK, "starstoneID", "1706").getInt();
+		brokenstarstoneID = internalCfg.get(Configuration.CATEGORY_BLOCK, "brokenstarstoneID", "1707").getInt();
+		chiseledstarstoneID = internalCfg.get(Configuration.CATEGORY_BLOCK, "chiseledstarstoneID", "1708").getInt();
+
+		acranaID = internalCfg.get(Configuration.CATEGORY_BLOCK, "acranaID", "1709").getInt();
+		crackedacranaID = internalCfg.get(Configuration.CATEGORY_BLOCK, "crackedacranaID", "1710").getInt();
+		chiseledacranaID = internalCfg.get(Configuration.CATEGORY_BLOCK, "chiseledacranaID", "1711").getInt();
+		adumbratedacranaID = internalCfg.get(Configuration.CATEGORY_BLOCK, "adumbratedacranaID", "1712").getInt();
+
+		ijoliteID = internalCfg.get(Configuration.CATEGORY_BLOCK, "ijoliteID", "1713").getInt();
+		ijolitestairsID = internalCfg.get(Configuration.CATEGORY_BLOCK, "ijolitestairsID", "1714").getInt();
+
+		overworldcrevasseportalID = internalCfg.get(Configuration.CATEGORY_BLOCK, "overworldcrevasseportalID", "1715").getInt();
+
+		vaporID = internalCfg.get(Configuration.CATEGORY_BLOCK, "vaporID", "1716").getInt();
 	}
 
 	private void loadItemConfig() {
@@ -148,11 +182,13 @@ public class ProtonConfiguration {
 		snowywastelandID = internalCfg.get(this.CATEGORY_BIOME, "snowywastelandID", "65").getInt();
 		ancientforestID = internalCfg.get(this.CATEGORY_BIOME, "ancientforestID", "66").getInt();
 		ancientjungleID = internalCfg.get(this.CATEGORY_BIOME, "ancientjungleID", "67").getInt();
+		crevassebiomeID = internalCfg.get(this.CATEGORY_BIOME, "crevassebiomeID", "68").getInt();
 	}
 
 	private void loadDimensionConfig() {
 		doalternatesurface = internalCfg.get(this.CATEGORY_DIMENSION, "doalternatesurface", "true").getBoolean(true);
 		alternatesurfaceproviderID = internalCfg.get(this.CATEGORY_DIMENSION, "alternatesurfaceID", "16").getInt();
+		crevasseID = internalCfg.get(this.CATEGORY_DIMENSION, "crevasseID", "-2").getInt();
 	}
 
 }

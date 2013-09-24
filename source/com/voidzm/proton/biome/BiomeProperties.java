@@ -21,7 +21,7 @@ public enum BiomeProperties {
 	SAVANNA(9, -999, 1, 0.1F, 0.1F, 0.7F, 0.2F, 0xADA263, 0xADA263, new BiomeStructureGen(StructureGenType.OLIVETREE, false, 5)),
 	SANDYPEAKS(-999, 10, -999, 0.4F, 1.8F, 1.5F, 0.0F, new BiomeStructureGen[] {}),
 	ALPINE(-999, 0, 2, 0.4F, 1.8F, 0.1F, 0.8F, new BiomeStructureGen(StructureGenType.SPRUCETREE1, true, 3), new BiomeStructureGen(StructureGenType.SPRUCETREE2, true, 1)),
-	STARWOODFOREST(2, 8, -999, 0.4F, 0.55F, 0.5F, 0.5F, 0xEAEDD8, 0xCCE69A, new BiomeStructureGen(StructureGenType.STARWOODTREE, true, 8)),
+	STARWOODFOREST(2, 8, -999, 0.4F, 0.55F, 0.5F, 0.5F, 0xEAEDD8, 0xCCE69A, new BiomeStructureGen(StructureGenType.STARWOODTREE, true, 8), new BiomeStructureGen(StructureGenType.STARSTONEVEIN, true, 4)),
 	RAINFOREST(5, 8, 3, 0.3F, 1.4F, 1.2F, 1.0F, new BiomeStructureGen(StructureGenType.MAHOGANYTREE, false, 5), new BiomeStructureGen(StructureGenType.SMALLTREE, true, 8), new BiomeStructureGen(StructureGenType.JUNGLETREE, true, 8), new BiomeStructureGen(StructureGenType.JUNGLESHRUB, true, 12)),
 	TEMPERATEHILLS(4, 1, -999, 0.2F, 0.6F, 0.3F, 0.5F, new BiomeStructureGen(StructureGenType.SMALLTREE, true, 6), new BiomeStructureGen(StructureGenType.BIRCHTREE, true, 1), new BiomeStructureGen(StructureGenType.SPRUCETREE1, true, 2), new BiomeStructureGen(StructureGenType.SPRUCETREE2, true, 2)),
 	DUSTYHIGHLANDS(10, -999, -999, 5.0F, 5.0F, 0.5F, 0.1F, 0xBDC28D, 0xBDC28D, new BiomeStructureGen[] {}),
@@ -30,8 +30,9 @@ public enum BiomeProperties {
 	SHRUBLAND(15, -999, 1, 0.2F, 0.5F, 1.6F, 0.0F, new BiomeStructureGen(StructureGenType.SHRUBLANDTREE, true, 10), new BiomeStructureGen(StructureGenType.OAKSHRUB, true, 2)),
 	ARCTICDESERT(-999, -999, -999, 0.1F, 0.2F, 0.0F, 0.0F, new BiomeStructureGen[] {}),
 	SNOWYWASTELAND(-999, -999, -999, 0.05F, 0.35F, 0.0F, 0.0F, new BiomeStructureGen[] {}),
-	ANCIENTFOREST(8, 1, 1, 0.2F, 0.4F, 0.6F, 0.6F, new BiomeStructureGen(StructureGenType.BIGTREE, true, 9), new BiomeStructureGen(StructureGenType.SMALLTREE, true, 2)),
-	ANCIENTJUNGLE(5, 3, 3, 0.3F, 0.6F, 1.2F, 1.2F, new BiomeStructureGen(StructureGenType.BIGJUNGLETREE, true, 10), new BiomeStructureGen(StructureGenType.JUNGLETREE, true, 2), new BiomeStructureGen(StructureGenType.JUNGLESHRUB, true, 3));
+	ANCIENTFOREST(8, 1, 1, 0.2F, 0.4F, 0.6F, 0.6F, new BiomeStructureGen(StructureGenType.BIGTREE, true, 9), new BiomeStructureGen(StructureGenType.SMALLTREE, true, 2), new BiomeStructureGen(StructureGenType.MOSS, true, 5), new BiomeStructureGen(StructureGenType.ACRANATHREAD, false, 5)),
+	ANCIENTJUNGLE(5, 3, 3, 0.3F, 0.6F, 1.2F, 1.2F, new BiomeStructureGen(StructureGenType.BIGJUNGLETREE, true, 10), new BiomeStructureGen(StructureGenType.JUNGLETREE, true, 2), new BiomeStructureGen(StructureGenType.JUNGLESHRUB, true, 3), new BiomeStructureGen(StructureGenType.MOSS, true, 5), new BiomeStructureGen(StructureGenType.ACRANATHREAD, false, 10)),
+	CREVASSE(-999, -999, -999, 0.05F, 0.35F, 0.0F, 0.0F, 0xB8BFBA, 0xB8BFBA, new BiomeStructureGen(StructureGenType.CAVEVINES, true, 32), new BiomeStructureGen(StructureGenType.VAPORSTREAMS, false, 4));
 
 	public int grass;
 	public int sugarCane;

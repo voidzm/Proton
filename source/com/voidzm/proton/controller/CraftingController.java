@@ -41,6 +41,8 @@ public class CraftingController {
 
 	private static void createSmelting() {
 		GameRegistry.addSmelting(BlockController.fracturedAdobe.blockID, new ItemStack(BlockController.adobe), 0.1F);
+		GameRegistry.addSmelting(BlockController.brokenStarstone.blockID, new ItemStack(BlockController.starstone), 0.1F);
+		GameRegistry.addSmelting(BlockController.crackedAcrana.blockID, new ItemStack(BlockController.acrana), 0.1F);
 		GameRegistry.addSmelting(Item.snowball.itemID, new ItemStack(ItemController.snowBrick), 0.1F);
 	}
 
@@ -53,5 +55,11 @@ public class CraftingController {
 		GameRegistry.addRecipe(new ItemStack(BlockController.chiseledArcticSandstone), new Object[] {"A", "A", 'A', new ItemStack(ProtonStoneRegistry.fetchSlabIDForName("Arctic Sandstone"), 1, ProtonStoneRegistry.fetchSlabMetaForName("Arctic Sandstone"))});
 
 		GameRegistry.addRecipe(new ItemStack(ProtonStoneRegistry.fetchStoneIDForName("Snow Bricks"), 4, ProtonStoneRegistry.fetchStoneMetaForName("Snow Bricks")), new Object[] {"ss", "ss", 's', ItemController.snowBrick});
+
+		GameRegistry.addRecipe(new ItemStack(ProtonStoneRegistry.fetchStoneIDForName("Starstone Bricks"), 4, ProtonStoneRegistry.fetchStoneMetaForName("Starstone Bricks")), new Object[] {"SS", "SS", 'S', BlockController.starstone});
+		GameRegistry.addRecipe(new ItemStack(BlockController.chiseledStarstone), new Object[] {"S", "S", 'S', new ItemStack(ProtonStoneRegistry.fetchSlabIDForName("Starstone Bricks"), 1, ProtonStoneRegistry.fetchSlabMetaForName("Starstone Bricks"))});
+
+		GameRegistry.addRecipe(new ItemStack(ProtonStoneRegistry.fetchStoneIDForName("Acrana Bricks"), 4, ProtonStoneRegistry.fetchStoneMetaForName("Acrana Bricks")), new Object[] {"AA", "AA", 'A', BlockController.acrana});
+		GameRegistry.addRecipe(new ItemStack(BlockController.chiseledAcrana), new Object[] {"A", "A", 'A', new ItemStack(ProtonStoneRegistry.fetchSlabIDForName("Acrana Bricks"), 1, ProtonStoneRegistry.fetchSlabMetaForName("Acrana Bricks"))});
 	}
 }

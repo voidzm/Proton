@@ -14,6 +14,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 import com.voidzm.proton.protocol.IRegisterable;
@@ -37,6 +38,8 @@ public class BlockProton extends Block {
 	private boolean dragonDestroys = true;
 
 	private int altDropID = -1;
+
+	private int lightValue = -1;
 
 	public BlockProton(int par1, Material par2Material) {
 		super(par1, par2Material);
@@ -152,6 +155,21 @@ public class BlockProton extends Block {
 	public BlockProton setAlternateDrop(int id) {
 		this.altDropID = id;
 		return this;
+	}
+
+	public BlockProton setLightValue(int val) {
+		this.lightValue = val;
+		return this;
+	}
+
+	@Override
+	public int getLightValue(IBlockAccess world, int x, int y, int z) {
+		if(this.lightValue != -1) {
+			return this.lightValue;
+		}
+		else {
+			return super.getLightValue(world, x, y, z);
+		}
 	}
 
 }

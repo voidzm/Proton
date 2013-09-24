@@ -26,6 +26,7 @@ public class BiomeProton extends BiomeGenBase {
 
 	public boolean doLakeGen = true;
 	public boolean doFog = false;
+	public boolean doVanillaDecorator = true;
 
 	public BiomeProton(int par1, BiomeProperties prop, String name) {
 		super(par1);
@@ -53,7 +54,9 @@ public class BiomeProton extends BiomeGenBase {
 
 	@Override
 	public void decorate(World par1World, Random par2Random, int par3, int par4) {
-		super.decorate(par1World, par2Random, par3, par4);
+		if(this.doVanillaDecorator) {
+			super.decorate(par1World, par2Random, par3, par4);
+		}
 		for(BiomeStructureGen gen : this.decorators) {
 			gen.generate(par1World, par2Random, par3, par4);
 		}
@@ -83,6 +86,7 @@ public class BiomeProton extends BiomeGenBase {
 
 	public BiomeProton setNoAnimals() {
 		this.spawnableCreatureList.clear();
+		this.spawnableWaterCreatureList.clear();
 		return this;
 	}
 
@@ -125,6 +129,11 @@ public class BiomeProton extends BiomeGenBase {
 
 	public BiomeProton enableFog() {
 		this.doFog = true;
+		return this;
+	}
+
+	public BiomeProton disableDecorator() {
+		this.doVanillaDecorator = false;
 		return this;
 	}
 

@@ -39,6 +39,7 @@ public class BiomeController {
 	public static BiomeProton snowyWasteland;
 	public static BiomeProton ancientForest;
 	public static BiomeProton ancientJungle;
+	public static BiomeProton crevasse;
 
 	public static void init(ProtonConfiguration cfg, boolean doVanillaBiomes) {
 		if(config != null) {
@@ -76,6 +77,7 @@ public class BiomeController {
 		snowyWasteland = new BiomeProton(config.snowywastelandID, BiomeProperties.SNOWYWASTELAND, "Snowy Wasteland").setNoAnimals().setTopBlock((byte)Block.blockSnow.blockID).setFillerBlock((byte)Block.blockSnow.blockID).setSkyColor(0xDDDDFF);
 		ancientForest = new BiomeProton(config.ancientforestID, BiomeProperties.ANCIENTFOREST, "Ancient Forest");
 		ancientJungle = new BiomeProton(config.ancientjungleID, BiomeProperties.ANCIENTJUNGLE, "Ancient Jungle");
+		crevasse = new BiomeProton(config.crevassebiomeID, BiomeProperties.CREVASSE, "Crevasse").setArid().setSkyColor(0x000000).disableDecorator();
 	}
 
 	private static void registerBiomes() {
